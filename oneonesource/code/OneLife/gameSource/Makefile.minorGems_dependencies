@@ -1,0 +1,436 @@
+${SCREEN_GL_O}: ../../minorGems/graphics/openGL/ScreenGL_SDL.cpp \
+ ../../minorGems/graphics/openGL/ScreenGL.h \
+ ../../minorGems/graphics/openGL/MouseHandlerGL.h \
+ ../../minorGems/graphics/openGL/KeyboardHandlerGL.h \
+ ../../minorGems/graphics/openGL/SceneHandlerGL.h \
+ ../../minorGems/graphics/openGL/RedrawListenerGL.h \
+ ../../minorGems/math/geometry/Vector3D.h \
+ ../../minorGems/math/geometry/Angle3D.h \
+ ../../minorGems/io/Serializable.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/math/geometry/Angle3D.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/system/Time.h \
+ ../../minorGems/graphics/openGL/SingleTextureGL.h \
+ ../../minorGems/graphics/openGL/glInclude.h \
+ ../../minorGems/graphics/Image.h \
+ ../../minorGems/graphics/ChannelFilter.h \
+ ../../minorGems/graphics/Color.h ../../minorGems/graphics/RGBAImage.h \
+ ../../minorGems/graphics/Image.h \
+ ../../minorGems/graphics/openGL/glInclude.h \
+ ../../minorGems/util/stringUtils.h \
+ ../../minorGems/util/SettingsManager.h \
+ ../../minorGems/system/MutexLock.h ../../minorGems/util/log/AppLog.h \
+ ../../minorGems/util/log/Log.h ../../minorGems/util/log/PrintLog.h \
+ ../../minorGems/io/file/File.h ../../minorGems/io/file/Path.h \
+ ../../minorGems/io/file/FileInputStream.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h \
+ ../../minorGems/system/Thread.h ../../minorGems/crypto/hashes/sha1.h \
+ ../../minorGems/system/endian.h ../../minorGems/formats/encodingUtils.h
+${SINGLE_TEXTURE_GL_O}: ../../minorGems/graphics/openGL/SingleTextureGL.cpp \
+ ../../minorGems/graphics/openGL/SingleTextureGL.h \
+ ../../minorGems/graphics/openGL/glInclude.h \
+ ../../minorGems/graphics/Image.h \
+ ../../minorGems/graphics/ChannelFilter.h \
+ ../../minorGems/graphics/Color.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/graphics/RGBAImage.h ../../minorGems/graphics/Image.h \
+ ../../minorGems/util/SimpleVector.h
+${TYPE_IO_O}: ../../minorGems/io/linux/TypeIOLinux.cpp \
+ ../../minorGems/io/TypeIO.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/system/endian.h
+${STRING_UTILS_O}: ../../minorGems/util/stringUtils.cpp \
+ ../../minorGems/util/stringUtils.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/SimpleVector.h
+${STRING_BUFFER_OUTPUT_STREAM_O}: \
+ ../../minorGems/util/StringBufferOutputStream.cpp \
+ ../../minorGems/util/StringBufferOutputStream.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h
+${BYTE_BUFFER_INPUT_STREAM_O}: ../../minorGems/util/ByteBufferInputStream.cpp \
+ ../../minorGems/util/ByteBufferInputStream.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h
+${PATH_O}: ../../minorGems/io/file/linux/PathLinux.cpp \
+ ../../minorGems/io/file/Path.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h
+${TIME_O}: ../../minorGems/system/unix/TimeUnix.cpp \
+ ../../minorGems/system/Time.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h
+${THREAD_O}: ../../minorGems/system/linux/ThreadLinux.cpp \
+ ../../minorGems/system/Thread.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h
+${MUTEX_LOCK_O}: ../../minorGems/system/linux/MutexLockLinux.cpp \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/system/MutexLock.h
+${BINARY_SEMAPHORE_O}: \
+ ../../minorGems/system/linux/BinarySemaphoreLinux.cpp \
+ ../../minorGems/system/BinarySemaphore.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/system/MutexLock.h ../../minorGems/system/Time.h
+${TRANSLATION_MANAGER_O}: ../../minorGems/util/TranslationManager.cpp \
+ ../../minorGems/util/TranslationManager.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/file/Path.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/system/Time.h ../../minorGems/io/file/FileInputStream.h \
+ ../../minorGems/io/file/File.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h \
+ ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h
+${SOCKET_O}: ../../minorGems/network/linux/SocketLinux.cpp \
+ ../../minorGems/network/Socket.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/network/HostAddress.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/system/Time.h \
+ ../../minorGems/network/NetworkFunctionLocks.h \
+ ../../minorGems/system/MutexLock.h
+${HOST_ADDRESS_O}: ../../minorGems/network/linux/HostAddressLinux.cpp \
+ ../../minorGems/network/HostAddress.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/io/Serializable.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/network/NetworkFunctionLocks.h \
+ ../../minorGems/system/MutexLock.h
+${SOCKET_CLIENT_O}: ../../minorGems/network/linux/SocketClientLinux.cpp \
+ ../../minorGems/network/SocketClient.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/network/Socket.h ../../minorGems/network/HostAddress.h \
+ ../../minorGems/io/Serializable.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/system/Time.h \
+ ../../minorGems/network/HostAddress.h \
+ ../../minorGems/network/NetworkFunctionLocks.h \
+ ../../minorGems/system/MutexLock.h
+${SOCKET_SERVER_O}: ../../minorGems/network/linux/SocketServerLinux.cpp \
+ ../../minorGems/network/SocketServer.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/network/Socket.h ../../minorGems/network/HostAddress.h \
+ ../../minorGems/io/Serializable.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/system/Time.h
+${NETWORK_FUNCTION_LOCKS_O}: ../../minorGems/network/NetworkFunctionLocks.cpp \
+ ../../minorGems/network/NetworkFunctionLocks.h \
+ ../../minorGems/system/MutexLock.h
+${LOOKUP_THREAD_O}: ../../minorGems/network/LookupThread.cpp \
+ ../../minorGems/network/LookupThread.h \
+ ../../minorGems/system/FinishedSignalThread.h \
+ ../../minorGems/system/Thread.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/system/MutexLock.h ../../minorGems/network/HostAddress.h \
+ ../../minorGems/io/Serializable.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/util/SimpleVector.h
+${WEB_REQUEST_O}: ../../minorGems/network/web/WebRequest.cpp \
+ ../../minorGems/network/web/WebRequest.h \
+ ../../minorGems/network/Socket.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/network/HostAddress.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/system/Time.h ../../minorGems/network/LookupThread.h \
+ ../../minorGems/system/FinishedSignalThread.h \
+ ../../minorGems/system/Thread.h ../../minorGems/system/MutexLock.h \
+ ../../minorGems/util/StringBufferOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/network/SocketClient.h \
+ ../../minorGems/network/Socket.h ../../minorGems/network/HostAddress.h
+${URL_UTILS_O}: ../../minorGems/network/web/URLUtils.cpp \
+ ../../minorGems/network/web/URLUtils.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/formats/encodingUtils.h
+${SETTINGS_MANAGER_O}: ../../minorGems/util/SettingsManager.cpp \
+ ../../minorGems/util/SettingsManager.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/system/MutexLock.h \
+ ../../minorGems/system/Time.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/io/file/File.h ../../minorGems/io/file/Path.h \
+ ../../minorGems/io/file/FileInputStream.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h \
+ ../../minorGems/io/file/Path.h ../../minorGems/crypto/hashes/sha1.h \
+ ../../minorGems/system/endian.h
+${FINISHED_SIGNAL_THREAD_O}: ../../minorGems/system/FinishedSignalThread.cpp \
+ ../../minorGems/system/FinishedSignalThread.h \
+ ../../minorGems/system/Thread.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/system/MutexLock.h
+${STOP_SIGNAL_THREAD_O}: ../../minorGems/system/StopSignalThread.cpp \
+ ../../minorGems/system/StopSignalThread.h \
+ ../../minorGems/system/Thread.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/system/MutexLock.h \
+ ../../minorGems/system/BinarySemaphore.h \
+ ../../minorGems/system/MutexLock.h
+${SHA1_O}: ../../minorGems/crypto/hashes/sha1.cpp \
+ ../../minorGems/crypto/hashes/sha1.h ../../minorGems/system/endian.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/formats/encodingUtils.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h
+${ENCODING_UTILS_O}: ../../minorGems/formats/encodingUtils.cpp \
+ ../../minorGems/formats/encodingUtils.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/formats/miniz.h ../../minorGems/formats/miniz.c
+${DIRECTORY_O}: ../../minorGems/io/file/unix/DirectoryUnix.cpp \
+ ../../minorGems/io/file/Directory.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/io/file/File.h ../../minorGems/io/file/Path.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/system/Time.h ../../minorGems/io/file/FileInputStream.h \
+ ../../minorGems/io/file/File.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h \
+ ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h
+${LOG_O}: ../../minorGems/util/log/Log.cpp ../../minorGems/util/log/Log.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h
+${APP_LOG_O}: ../../minorGems/util/log/AppLog.cpp \
+ ../../minorGems/util/log/AppLog.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/log/Log.h ../../minorGems/util/log/PrintLog.h \
+ ../../minorGems/system/MutexLock.h
+${FILE_LOG_O}: ../../minorGems/util/log/FileLog.cpp \
+ ../../minorGems/util/log/FileLog.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/system/Time.h ../../minorGems/util/log/PrintLog.h \
+ ../../minorGems/util/log/Log.h ../../minorGems/system/MutexLock.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/io/file/File.h ../../minorGems/io/file/Path.h \
+ ../../minorGems/io/file/FileInputStream.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h
+${PRINT_LOG_O}: ../../minorGems/util/log/PrintLog.cpp \
+ ../../minorGems/util/log/PrintLog.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/log/Log.h ../../minorGems/system/MutexLock.h \
+ ../../minorGems/system/Time.h ../../minorGems/util/printUtils.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h
+printUtils.o: ../../minorGems/util/printUtils.cpp \
+ ../../minorGems/util/printUtils.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/system/MutexLock.h
+${GAME_SDL_O}: ../../minorGems/game/platforms/SDL/gameSDL.cpp \
+ ../../minorGems/graphics/openGL/ScreenGL.h \
+ ../../minorGems/graphics/openGL/MouseHandlerGL.h \
+ ../../minorGems/graphics/openGL/KeyboardHandlerGL.h \
+ ../../minorGems/graphics/openGL/SceneHandlerGL.h \
+ ../../minorGems/graphics/openGL/RedrawListenerGL.h \
+ ../../minorGems/math/geometry/Vector3D.h \
+ ../../minorGems/math/geometry/Angle3D.h \
+ ../../minorGems/io/Serializable.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/math/geometry/Angle3D.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/system/Time.h \
+ ../../minorGems/graphics/openGL/SceneHandlerGL.h \
+ ../../minorGems/graphics/Color.h \
+ ../../minorGems/graphics/openGL/gui/GUIComponentGL.h \
+ ../../minorGems/graphics/openGL/RedrawListenerGL.h \
+ ../../minorGems/ui/GUIComponent.h \
+ ../../minorGems/graphics/openGL/KeyboardHandlerGL.h \
+ ../../minorGems/network/web/WebRequest.h \
+ ../../minorGems/network/Socket.h ../../minorGems/network/HostAddress.h \
+ ../../minorGems/util/stringUtils.h \
+ ../../minorGems/network/LookupThread.h \
+ ../../minorGems/system/FinishedSignalThread.h \
+ ../../minorGems/system/Thread.h ../../minorGems/system/MutexLock.h \
+ ../../minorGems/graphics/openGL/glInclude.h \
+ ../../minorGems/graphics/openGL/MouseHandlerGL.h \
+ ../../minorGems/ui/event/ActionListener.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/file/Path.h ../../minorGems/io/file/FileInputStream.h \
+ ../../minorGems/io/file/File.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h \
+ ../../minorGems/network/SocketClient.h ../../minorGems/network/Socket.h \
+ ../../minorGems/network/HostAddress.h \
+ ../../minorGems/network/upnp/portMapping.h \
+ ../../minorGems/util/SettingsManager.h \
+ ../../minorGems/util/TranslationManager.h \
+ ../../minorGems/util/log/AppLog.h ../../minorGems/util/log/Log.h \
+ ../../minorGems/util/log/PrintLog.h ../../minorGems/util/log/FileLog.h \
+ ../../minorGems/graphics/converters/TGAImageConverter.h \
+ ../../minorGems/graphics/converters/LittleEndianImageConverter.h \
+ ../../minorGems/graphics/ImageConverter.h \
+ ../../minorGems/graphics/Image.h \
+ ../../minorGems/graphics/ChannelFilter.h \
+ ../../minorGems/graphics/Color.h ../../minorGems/graphics/RawRGBAImage.h \
+ ../../minorGems/util/ByteBufferInputStream.h \
+ ../../minorGems/sound/formats/aiff.h ../../minorGems/sound/audioNoClip.h \
+ ../../minorGems/game/game.h ../../minorGems/game/doublePair.h \
+ ../../minorGems/game/gameGraphics.h ../../minorGems/graphics/Image.h \
+ ../../minorGems/game/drawUtils.h ../../minorGems/game/doublePair.h \
+ ../../minorGems/game/diffBundle/client/diffBundleClient.h \
+ ../../minorGems/util/random/CustomRandomSource.h \
+ ../../minorGems/util/random/RandomSource32.h \
+ ../../minorGems/util/random/RandomSource.h \
+ ../../minorGems/game/platforms/SDL/demoCodePanel.h \
+ ../../minorGems/graphics/openGL/gui/GUIPanelGL.h \
+ ../../minorGems/graphics/openGL/gui/GUIComponentGL.h \
+ ../../minorGems/graphics/openGL/gui/GUIContainerGL.h \
+ ../../minorGems/graphics/openGL/gui/GUITranslatorGL.h \
+ ../../minorGems/graphics/openGL/gui/TextGL.h \
+ ../../minorGems/graphics/openGL/SingleTextureGL.h \
+ ../../minorGems/graphics/openGL/glInclude.h \
+ ../../minorGems/graphics/RGBAImage.h \
+ ../../minorGems/graphics/openGL/gui/TextFieldGL.h \
+ ../../minorGems/graphics/openGL/gui/TextGL.h \
+ ../../minorGems/ui/event/ActionListenerList.h \
+ ../../minorGems/ui/event/ActionListener.h \
+ ../../minorGems/graphics/openGL/gui/LabelGL.h \
+ ../../minorGems/game/platforms/SDL/DemoCodeChecker.h \
+ ../../minorGems/system/StopSignalThread.h \
+ ../../minorGems/system/BinarySemaphore.h \
+ ../../minorGems/system/MutexLock.h
+${GAME_GRAPHICS_GL_O}: \
+ ../../minorGems/game/platforms/openGL/gameGraphicsGL.cpp \
+ ../../minorGems/game/gameGraphics.h ../../minorGems/game/doublePair.h \
+ ../../minorGems/graphics/Image.h \
+ ../../minorGems/graphics/ChannelFilter.h \
+ ../../minorGems/graphics/Color.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/graphics/RawRGBAImage.h \
+ ../../minorGems/game/platforms/openGL/SpriteGL.h \
+ ../../minorGems/graphics/openGL/SingleTextureGL.h \
+ ../../minorGems/graphics/openGL/glInclude.h \
+ ../../minorGems/graphics/RGBAImage.h ../../minorGems/graphics/Image.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/game/doublePair.h \
+ ../../minorGems/math/geometry/Vector3D.h \
+ ../../minorGems/math/geometry/Angle3D.h \
+ ../../minorGems/graphics/openGL/glInclude.h
+${SPRITE_GL_O}: ../../minorGems/game/platforms/openGL/SpriteGL.cpp \
+ ../../minorGems/game/platforms/openGL/SpriteGL.h \
+ ../../minorGems/graphics/openGL/SingleTextureGL.h \
+ ../../minorGems/graphics/openGL/glInclude.h \
+ ../../minorGems/graphics/Image.h \
+ ../../minorGems/graphics/ChannelFilter.h \
+ ../../minorGems/graphics/Color.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/graphics/RGBAImage.h ../../minorGems/graphics/Image.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/game/gameGraphics.h \
+ ../../minorGems/game/doublePair.h \
+ ../../minorGems/graphics/RawRGBAImage.h \
+ ../../minorGems/game/doublePair.h \
+ ../../minorGems/math/geometry/Vector3D.h \
+ ../../minorGems/math/geometry/Angle3D.h \
+ ../../minorGems/math/geometry/Angle3D.h \
+ ../../minorGems/util/log/AppLog.h ../../minorGems/util/log/Log.h \
+ ../../minorGems/util/log/PrintLog.h ../../minorGems/system/MutexLock.h
+${DOUBLE_PAIR_O}: ../../minorGems/game/doublePair.cpp \
+ ../../minorGems/game/doublePair.h
+${FONT_O}: ../../minorGems/game/Font.cpp ../../minorGems/game/Font.h \
+ ../../minorGems/game/gameGraphics.h ../../minorGems/game/doublePair.h \
+ ../../minorGems/graphics/Image.h \
+ ../../minorGems/graphics/ChannelFilter.h \
+ ../../minorGems/graphics/Color.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/graphics/RawRGBAImage.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/graphics/RGBAImage.h \
+ ../../minorGems/graphics/Image.h
+${DRAW_UTILS_O}: ../../minorGems/game/drawUtils.cpp \
+ ../../minorGems/game/drawUtils.h ../../minorGems/game/doublePair.h \
+ ../../minorGems/graphics/Color.h ../../minorGems/game/gameGraphics.h \
+ ../../minorGems/game/doublePair.h ../../minorGems/graphics/Image.h \
+ ../../minorGems/graphics/ChannelFilter.h \
+ ../../minorGems/graphics/Color.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/graphics/RawRGBAImage.h
+${DEMO_CODE_CHECKER_O}: ../../minorGems/game/platforms/SDL/DemoCodeChecker.cpp \
+ ../../minorGems/game/platforms/SDL/DemoCodeChecker.h \
+ ../../minorGems/network/web/WebRequest.h \
+ ../../minorGems/network/Socket.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/network/HostAddress.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/system/Time.h ../../minorGems/network/LookupThread.h \
+ ../../minorGems/system/FinishedSignalThread.h \
+ ../../minorGems/system/Thread.h ../../minorGems/system/MutexLock.h \
+ ../../minorGems/util/TranslationManager.h \
+ ../../minorGems/crypto/hashes/sha1.h ../../minorGems/system/endian.h \
+ ../../minorGems/util/log/AppLog.h ../../minorGems/util/log/Log.h \
+ ../../minorGems/util/log/PrintLog.h
+${AIFF_O}: ../../minorGems/sound/formats/aiff.cpp \
+ ../../minorGems/sound/formats/aiff.h \
+ ../../minorGems/util/StringBufferOutputStream.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h
+${AUDIO_NO_CLIP_O}: ../../minorGems/sound/audioNoClip.cpp \
+ ../../minorGems/sound/audioNoClip.h
+${SOUND_SAMPLES_O}: ../../minorGems/sound/filters/SoundSamples.cpp \
+ ../../minorGems/sound/filters/SoundSamples.h
+${REVERB_SOUND_FILTER_O}: ../../minorGems/sound/filters/ReverbSoundFilter.cpp \
+ ../../minorGems/sound/filters/ReverbSoundFilter.h \
+ ../../minorGems/sound/filters/SoundFilter.h \
+ ../../minorGems/sound/filters/SoundSamples.h \
+ ../../minorGems/sound/filters/coefficientFilters.h
+${COEFFICIENT_FILTERS_O}: \
+ ../../minorGems/sound/filters/coefficientFilters.cpp \
+ ../../minorGems/sound/filters/coefficientFilters.h
+${CURVE_25519_O}: ../../minorGems/crypto/keyExchange/curve25519.cpp
+${CRYPTO_RANDOM_O}: ../../minorGems/crypto/cryptoRandom.cpp \
+ ../../minorGems/crypto/cryptoRandom.h
+${DIFF_BUNDLE_CLIENT_O}: \
+ ../../minorGems/game/diffBundle/client/diffBundleClient.cpp \
+ ../../minorGems/game/diffBundle/client/diffBundleClient.h \
+ ../../minorGems/game/game.h ../../minorGems/game/doublePair.h \
+ ../../minorGems/graphics/openGL/KeyboardHandlerGL.h \
+ ../../minorGems/system/Time.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/io/file/File.h ../../minorGems/io/file/Path.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/io/file/FileInputStream.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h \
+ ../../minorGems/formats/encodingUtils.h \
+ ../../minorGems/crypto/hashes/sha1.h ../../minorGems/system/endian.h \
+ ../../minorGems/util/log/AppLog.h ../../minorGems/util/log/Log.h \
+ ../../minorGems/util/log/PrintLog.h ../../minorGems/system/MutexLock.h \
+ ../../minorGems/util/random/JenkinsRandomSource.h \
+ ../../minorGems/util/random/RandomSource32.h \
+ ../../minorGems/util/random/RandomSource.h
+${STRING_TREE_O}: ../../minorGems/util/StringTree.cpp \
+ ../../minorGems/util/StringTree.h ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/stringUtils.h

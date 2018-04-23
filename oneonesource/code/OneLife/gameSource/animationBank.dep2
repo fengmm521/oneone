@@ -1,0 +1,43 @@
+../gameSource/animationBank.o: ../gameSource/animationBank.cpp \
+ ../gameSource/animationBank.h ../../minorGems/game/doublePair.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../gameSource/objectBank.h ../gameSource/SoundUsage.h \
+ ../gameSource/spriteBank.h ../../minorGems/game/gameGraphics.h \
+ ../../minorGems/game/doublePair.h ../../minorGems/graphics/Image.h \
+ ../../minorGems/graphics/ChannelFilter.h \
+ ../../minorGems/graphics/Color.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/graphics/RawRGBAImage.h ../gameSource/soundBank.h \
+ ../../minorGems/game/game.h \
+ ../../minorGems/graphics/openGL/KeyboardHandlerGL.h \
+ ../../minorGems/system/Time.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/file/Path.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/io/file/FileInputStream.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h \
+ ../gameSource/ageControl.h ../gameSource/folderCache.h
+
+../gameSource/animationBank.dep2: ../gameSource/animationBank.cpp \
+ ../gameSource/animationBank.h ../../minorGems/game/doublePair.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../gameSource/objectBank.h ../gameSource/SoundUsage.h \
+ ../gameSource/spriteBank.h ../../minorGems/game/gameGraphics.h \
+ ../../minorGems/game/doublePair.h ../../minorGems/graphics/Image.h \
+ ../../minorGems/graphics/ChannelFilter.h \
+ ../../minorGems/graphics/Color.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/graphics/RawRGBAImage.h ../gameSource/soundBank.h \
+ ../../minorGems/game/game.h \
+ ../../minorGems/graphics/openGL/KeyboardHandlerGL.h \
+ ../../minorGems/system/Time.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/file/Path.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/io/file/FileInputStream.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h \
+ ../gameSource/ageControl.h ../gameSource/folderCache.h

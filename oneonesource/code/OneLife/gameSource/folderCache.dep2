@@ -1,0 +1,23 @@
+../gameSource/folderCache.o: ../gameSource/folderCache.cpp \
+ ../gameSource/folderCache.h ../../minorGems/io/file/File.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/io/file/Path.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/system/Time.h \
+ ../../minorGems/io/file/FileInputStream.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h \
+ ../../minorGems/formats/encodingUtils.h
+
+../gameSource/folderCache.dep2: ../gameSource/folderCache.cpp \
+ ../gameSource/folderCache.h ../../minorGems/io/file/File.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/io/file/Path.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/system/Time.h \
+ ../../minorGems/io/file/FileInputStream.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h \
+ ../../minorGems/formats/encodingUtils.h

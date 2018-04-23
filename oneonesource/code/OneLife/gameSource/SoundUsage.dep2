@@ -1,0 +1,17 @@
+../gameSource/SoundUsage.o: ../gameSource/SoundUsage.cpp \
+ ../gameSource/SoundUsage.h ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/stringUtils.h \
+ ../../minorGems/util/random/JenkinsRandomSource.h \
+ ../../minorGems/util/random/RandomSource32.h \
+ ../../minorGems/util/random/RandomSource.h ../../minorGems/system/Time.h
+
+../gameSource/SoundUsage.dep2: ../gameSource/SoundUsage.cpp \
+ ../gameSource/SoundUsage.h ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/stringUtils.h \
+ ../../minorGems/util/random/JenkinsRandomSource.h \
+ ../../minorGems/util/random/RandomSource32.h \
+ ../../minorGems/util/random/RandomSource.h ../../minorGems/system/Time.h
