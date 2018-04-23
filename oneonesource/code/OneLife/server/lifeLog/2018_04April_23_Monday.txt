@@ -1,0 +1,2 @@
+B 1524477346 2 test@test.com F (0,0) noParent pop=1 chain=1
+D 1524477476 2 test@test.com age=16.16 F (23,-11) disconnect pop=0

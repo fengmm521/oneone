@@ -1,0 +1,3 @@
+dbCommon.o: dbCommon.cpp dbCommon.h
+
+dbCommon.dep2: dbCommon.cpp dbCommon.h

@@ -1,0 +1,27 @@
+foodLog.o: foodLog.cpp ../../minorGems/util/stringUtils.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/file/Path.h ../../minorGems/system/Time.h \
+ ../../minorGems/io/file/FileInputStream.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h \
+ ../../minorGems/io/file/Directory.h ../../minorGems/util/log/AppLog.h \
+ ../../minorGems/util/log/Log.h ../../minorGems/util/log/PrintLog.h \
+ ../../minorGems/system/MutexLock.h ../gameSource/objectBank.h \
+ ../../minorGems/game/doublePair.h ../gameSource/SoundUsage.h
+
+foodLog.dep2: foodLog.cpp ../../minorGems/util/stringUtils.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/file/Path.h ../../minorGems/system/Time.h \
+ ../../minorGems/io/file/FileInputStream.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h \
+ ../../minorGems/io/file/Directory.h ../../minorGems/util/log/AppLog.h \
+ ../../minorGems/util/log/Log.h ../../minorGems/util/log/PrintLog.h \
+ ../../minorGems/system/MutexLock.h ../gameSource/objectBank.h \
+ ../../minorGems/game/doublePair.h ../gameSource/SoundUsage.h

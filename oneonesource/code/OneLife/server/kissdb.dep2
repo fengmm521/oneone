@@ -1,0 +1,3 @@
+kissdb.o: kissdb.cpp kissdb.h
+
+kissdb.dep2: kissdb.cpp kissdb.h

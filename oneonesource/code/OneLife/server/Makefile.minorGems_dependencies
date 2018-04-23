@@ -1,0 +1,191 @@
+${TYPE_IO_O}: ../../minorGems/io/linux/TypeIOLinux.cpp \
+ ../../minorGems/io/TypeIO.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/system/endian.h
+${STRING_UTILS_O}: ../../minorGems/util/stringUtils.cpp \
+ ../../minorGems/util/stringUtils.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/SimpleVector.h
+${STRING_BUFFER_OUTPUT_STREAM_O}: \
+ ../../minorGems/util/StringBufferOutputStream.cpp \
+ ../../minorGems/util/StringBufferOutputStream.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h
+${PATH_O}: ../../minorGems/io/file/linux/PathLinux.cpp \
+ ../../minorGems/io/file/Path.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h
+${TIME_O}: ../../minorGems/system/unix/TimeUnix.cpp \
+ ../../minorGems/system/Time.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h
+${THREAD_O}: ../../minorGems/system/linux/ThreadLinux.cpp \
+ ../../minorGems/system/Thread.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h
+${MUTEX_LOCK_O}: ../../minorGems/system/linux/MutexLockLinux.cpp \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/system/MutexLock.h
+${TRANSLATION_MANAGER_O}: ../../minorGems/util/TranslationManager.cpp \
+ ../../minorGems/util/TranslationManager.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/file/Path.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/system/Time.h ../../minorGems/io/file/FileInputStream.h \
+ ../../minorGems/io/file/File.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h \
+ ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h
+${SOCKET_O}: ../../minorGems/network/linux/SocketLinux.cpp \
+ ../../minorGems/network/Socket.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/network/HostAddress.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/system/Time.h \
+ ../../minorGems/network/NetworkFunctionLocks.h \
+ ../../minorGems/system/MutexLock.h
+${HOST_ADDRESS_O}: ../../minorGems/network/linux/HostAddressLinux.cpp \
+ ../../minorGems/network/HostAddress.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/io/Serializable.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/network/NetworkFunctionLocks.h \
+ ../../minorGems/system/MutexLock.h
+${SOCKET_CLIENT_O}: ../../minorGems/network/linux/SocketClientLinux.cpp \
+ ../../minorGems/network/SocketClient.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/network/Socket.h ../../minorGems/network/HostAddress.h \
+ ../../minorGems/io/Serializable.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/system/Time.h \
+ ../../minorGems/network/HostAddress.h \
+ ../../minorGems/network/NetworkFunctionLocks.h \
+ ../../minorGems/system/MutexLock.h
+${SOCKET_SERVER_O}: ../../minorGems/network/linux/SocketServerLinux.cpp \
+ ../../minorGems/network/SocketServer.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/network/Socket.h ../../minorGems/network/HostAddress.h \
+ ../../minorGems/io/Serializable.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/system/Time.h
+${SOCKET_POLL_O}: ../../minorGems/network/linux/SocketPollLinux.cpp \
+ ../../minorGems/network/SocketPoll.h ../../minorGems/network/Socket.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/network/HostAddress.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/system/Time.h ../../minorGems/network/SocketServer.h
+${NETWORK_FUNCTION_LOCKS_O}: ../../minorGems/network/NetworkFunctionLocks.cpp \
+ ../../minorGems/network/NetworkFunctionLocks.h \
+ ../../minorGems/system/MutexLock.h
+${LOOKUP_THREAD_O}: ../../minorGems/network/LookupThread.cpp \
+ ../../minorGems/network/LookupThread.h \
+ ../../minorGems/system/FinishedSignalThread.h \
+ ../../minorGems/system/Thread.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/system/MutexLock.h ../../minorGems/network/HostAddress.h \
+ ../../minorGems/io/Serializable.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/util/SimpleVector.h
+${WEB_REQUEST_O}: ../../minorGems/network/web/WebRequest.cpp \
+ ../../minorGems/network/web/WebRequest.h \
+ ../../minorGems/network/Socket.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/network/HostAddress.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/system/Time.h ../../minorGems/network/LookupThread.h \
+ ../../minorGems/system/FinishedSignalThread.h \
+ ../../minorGems/system/Thread.h ../../minorGems/system/MutexLock.h \
+ ../../minorGems/util/StringBufferOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/network/SocketClient.h \
+ ../../minorGems/network/Socket.h ../../minorGems/network/HostAddress.h
+${URL_UTILS_O}: ../../minorGems/network/web/URLUtils.cpp \
+ ../../minorGems/network/web/URLUtils.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/formats/encodingUtils.h
+${SETTINGS_MANAGER_O}: ../../minorGems/util/SettingsManager.cpp \
+ ../../minorGems/util/SettingsManager.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/system/MutexLock.h \
+ ../../minorGems/system/Time.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/io/file/File.h ../../minorGems/io/file/Path.h \
+ ../../minorGems/io/file/FileInputStream.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h \
+ ../../minorGems/io/file/Path.h ../../minorGems/crypto/hashes/sha1.h \
+ ../../minorGems/system/endian.h
+${FINISHED_SIGNAL_THREAD_O}: ../../minorGems/system/FinishedSignalThread.cpp \
+ ../../minorGems/system/FinishedSignalThread.h \
+ ../../minorGems/system/Thread.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/system/MutexLock.h
+${SHA1_O}: ../../minorGems/crypto/hashes/sha1.cpp \
+ ../../minorGems/crypto/hashes/sha1.h ../../minorGems/system/endian.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/formats/encodingUtils.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h
+${ENCODING_UTILS_O}: ../../minorGems/formats/encodingUtils.cpp \
+ ../../minorGems/formats/encodingUtils.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/formats/miniz.h ../../minorGems/formats/miniz.c
+${DIRECTORY_O}: ../../minorGems/io/file/unix/DirectoryUnix.cpp \
+ ../../minorGems/io/file/Directory.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/io/file/File.h ../../minorGems/io/file/Path.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/system/Time.h ../../minorGems/io/file/FileInputStream.h \
+ ../../minorGems/io/file/File.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h \
+ ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h
+${LOG_O}: ../../minorGems/util/log/Log.cpp ../../minorGems/util/log/Log.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h
+${APP_LOG_O}: ../../minorGems/util/log/AppLog.cpp \
+ ../../minorGems/util/log/AppLog.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/log/Log.h ../../minorGems/util/log/PrintLog.h \
+ ../../minorGems/system/MutexLock.h
+${FILE_LOG_O}: ../../minorGems/util/log/FileLog.cpp \
+ ../../minorGems/util/log/FileLog.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/system/Time.h ../../minorGems/util/log/PrintLog.h \
+ ../../minorGems/util/log/Log.h ../../minorGems/system/MutexLock.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/io/file/File.h ../../minorGems/io/file/Path.h \
+ ../../minorGems/io/file/FileInputStream.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h
+${PRINT_LOG_O}: ../../minorGems/util/log/PrintLog.cpp \
+ ../../minorGems/util/log/PrintLog.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/log/Log.h ../../minorGems/system/MutexLock.h \
+ ../../minorGems/system/Time.h ../../minorGems/util/printUtils.h \
+ ../../minorGems/util/stringUtils.h ../../minorGems/util/SimpleVector.h
+printUtils.o: ../../minorGems/util/printUtils.cpp \
+ ../../minorGems/util/printUtils.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/system/MutexLock.h
+${DOUBLE_PAIR_O}: ../../minorGems/game/doublePair.cpp \
+ ../../minorGems/game/doublePair.h
+${STRING_TREE_O}: ../../minorGems/util/StringTree.cpp \
+ ../../minorGems/util/StringTree.h ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/stringUtils.h

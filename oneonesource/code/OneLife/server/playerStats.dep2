@@ -1,0 +1,33 @@
+playerStats.o: playerStats.cpp playerStats.h kissdb.h dbCommon.h \
+ ../../minorGems/util/log/AppLog.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/log/Log.h ../../minorGems/util/log/PrintLog.h \
+ ../../minorGems/system/MutexLock.h \
+ ../../minorGems/util/SettingsManager.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/system/Time.h \
+ ../../minorGems/network/web/WebRequest.h \
+ ../../minorGems/network/Socket.h ../../minorGems/network/HostAddress.h \
+ ../../minorGems/io/Serializable.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/network/LookupThread.h \
+ ../../minorGems/system/FinishedSignalThread.h \
+ ../../minorGems/system/Thread.h ../../minorGems/network/web/URLUtils.h \
+ ../../minorGems/crypto/hashes/sha1.h ../../minorGems/system/endian.h
+
+playerStats.dep2: playerStats.cpp playerStats.h kissdb.h dbCommon.h \
+ ../../minorGems/util/log/AppLog.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/log/Log.h ../../minorGems/util/log/PrintLog.h \
+ ../../minorGems/system/MutexLock.h \
+ ../../minorGems/util/SettingsManager.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/system/Time.h \
+ ../../minorGems/network/web/WebRequest.h \
+ ../../minorGems/network/Socket.h ../../minorGems/network/HostAddress.h \
+ ../../minorGems/io/Serializable.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/Stream.h ../../minorGems/io/TypeIO.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/util/stringUtils.h \
+ ../../minorGems/network/LookupThread.h \
+ ../../minorGems/system/FinishedSignalThread.h \
+ ../../minorGems/system/Thread.h ../../minorGems/network/web/URLUtils.h \
+ ../../minorGems/crypto/hashes/sha1.h ../../minorGems/system/endian.h

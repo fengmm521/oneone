@@ -1,0 +1,63 @@
+map.o: map.cpp map.h ../../minorGems/system/Time.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/SimpleVector.h HashTable.h monument.h \
+ ../../minorGems/util/random/JenkinsRandomSource.h \
+ ../../minorGems/util/random/RandomSource32.h \
+ ../../minorGems/util/random/RandomSource.h \
+ ../../minorGems/util/random/CustomRandomSource.h \
+ ../../minorGems/util/stringUtils.h \
+ ../../minorGems/util/SettingsManager.h \
+ ../../minorGems/system/MutexLock.h ../../minorGems/util/log/AppLog.h \
+ ../../minorGems/util/log/Log.h ../../minorGems/util/log/PrintLog.h \
+ ../../minorGems/formats/encodingUtils.h kissdb.h stackdb.h dbCommon.h \
+ ../gameSource/transitionBank.h ../gameSource/objectBank.h \
+ ../../minorGems/game/doublePair.h ../gameSource/SoundUsage.h \
+ ../gameSource/GridPos.h ../../minorGems/util/MinPriorityQueue.h \
+ ../commonSource/fractalNoise.h ../../minorGems/graphics/Image.h \
+ ../../minorGems/graphics/ChannelFilter.h \
+ ../../minorGems/graphics/Color.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/graphics/converters/TGAImageConverter.h \
+ ../../minorGems/graphics/converters/LittleEndianImageConverter.h \
+ ../../minorGems/graphics/ImageConverter.h \
+ ../../minorGems/graphics/Image.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/OutputStream.h \
+ ../../minorGems/graphics/RawRGBAImage.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/file/Path.h ../../minorGems/io/file/FileInputStream.h \
+ ../../minorGems/io/file/File.h \
+ ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/file/Directory.h
+
+map.dep2: map.cpp map.h ../../minorGems/system/Time.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/SimpleVector.h HashTable.h monument.h \
+ ../../minorGems/util/random/JenkinsRandomSource.h \
+ ../../minorGems/util/random/RandomSource32.h \
+ ../../minorGems/util/random/RandomSource.h \
+ ../../minorGems/util/random/CustomRandomSource.h \
+ ../../minorGems/util/stringUtils.h \
+ ../../minorGems/util/SettingsManager.h \
+ ../../minorGems/system/MutexLock.h ../../minorGems/util/log/AppLog.h \
+ ../../minorGems/util/log/Log.h ../../minorGems/util/log/PrintLog.h \
+ ../../minorGems/formats/encodingUtils.h kissdb.h stackdb.h dbCommon.h \
+ ../gameSource/transitionBank.h ../gameSource/objectBank.h \
+ ../../minorGems/game/doublePair.h ../gameSource/SoundUsage.h \
+ ../gameSource/GridPos.h ../../minorGems/util/MinPriorityQueue.h \
+ ../commonSource/fractalNoise.h ../../minorGems/graphics/Image.h \
+ ../../minorGems/graphics/ChannelFilter.h \
+ ../../minorGems/graphics/Color.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/graphics/converters/TGAImageConverter.h \
+ ../../minorGems/graphics/converters/LittleEndianImageConverter.h \
+ ../../minorGems/graphics/ImageConverter.h \
+ ../../minorGems/graphics/Image.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/OutputStream.h \
+ ../../minorGems/graphics/RawRGBAImage.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/file/Path.h ../../minorGems/io/file/FileInputStream.h \
+ ../../minorGems/io/file/File.h \
+ ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/file/Directory.h

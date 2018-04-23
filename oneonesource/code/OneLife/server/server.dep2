@@ -1,0 +1,79 @@
+server.o: server.cpp ../../minorGems/util/stringUtils.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/util/SettingsManager.h \
+ ../../minorGems/system/MutexLock.h ../../minorGems/system/Time.h \
+ ../../minorGems/network/SocketServer.h ../../minorGems/network/Socket.h \
+ ../../minorGems/network/HostAddress.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/network/SocketPoll.h \
+ ../../minorGems/network/SocketServer.h \
+ ../../minorGems/network/web/WebRequest.h \
+ ../../minorGems/network/Socket.h ../../minorGems/network/LookupThread.h \
+ ../../minorGems/system/FinishedSignalThread.h \
+ ../../minorGems/system/Thread.h ../../minorGems/network/web/URLUtils.h \
+ ../../minorGems/crypto/hashes/sha1.h ../../minorGems/system/endian.h \
+ ../../minorGems/game/doublePair.h ../../minorGems/util/log/AppLog.h \
+ ../../minorGems/util/log/Log.h ../../minorGems/util/log/PrintLog.h \
+ ../../minorGems/util/log/FileLog.h \
+ ../../minorGems/formats/encodingUtils.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/file/Path.h ../../minorGems/io/file/FileInputStream.h \
+ ../../minorGems/io/file/File.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h \
+ map.h ../gameSource/transitionBank.h ../gameSource/objectBank.h \
+ ../gameSource/SoundUsage.h ../gameSource/animationBank.h \
+ ../gameSource/objectBank.h ../gameSource/categoryBank.h lifeLog.h \
+ foodLog.h backup.h triggers.h ../gameSource/GridPos.h playerStats.h \
+ serverCalls.h failureLog.h names.h \
+ ../../minorGems/util/random/JenkinsRandomSource.h \
+ ../../minorGems/util/random/RandomSource32.h \
+ ../../minorGems/util/random/RandomSource.h ../gameSource/spriteBank.h \
+ ../../minorGems/game/gameGraphics.h ../../minorGems/game/doublePair.h \
+ ../../minorGems/graphics/Image.h \
+ ../../minorGems/graphics/ChannelFilter.h \
+ ../../minorGems/graphics/Color.h ../../minorGems/graphics/RawRGBAImage.h \
+ ../gameSource/soundBank.h ../../minorGems/game/game.h \
+ ../../minorGems/graphics/openGL/KeyboardHandlerGL.h
+
+server.dep2: server.cpp ../../minorGems/util/stringUtils.h \
+ ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../../minorGems/util/SimpleVector.h \
+ ../../minorGems/util/SettingsManager.h \
+ ../../minorGems/system/MutexLock.h ../../minorGems/system/Time.h \
+ ../../minorGems/network/SocketServer.h ../../minorGems/network/Socket.h \
+ ../../minorGems/network/HostAddress.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/network/SocketPoll.h \
+ ../../minorGems/network/SocketServer.h \
+ ../../minorGems/network/web/WebRequest.h \
+ ../../minorGems/network/Socket.h ../../minorGems/network/LookupThread.h \
+ ../../minorGems/system/FinishedSignalThread.h \
+ ../../minorGems/system/Thread.h ../../minorGems/network/web/URLUtils.h \
+ ../../minorGems/crypto/hashes/sha1.h ../../minorGems/system/endian.h \
+ ../../minorGems/game/doublePair.h ../../minorGems/util/log/AppLog.h \
+ ../../minorGems/util/log/Log.h ../../minorGems/util/log/PrintLog.h \
+ ../../minorGems/util/log/FileLog.h \
+ ../../minorGems/formats/encodingUtils.h ../../minorGems/io/file/File.h \
+ ../../minorGems/io/file/Path.h ../../minorGems/io/file/FileInputStream.h \
+ ../../minorGems/io/file/File.h ../../minorGems/io/InputStream.h \
+ ../../minorGems/io/file/FileOutputStream.h \
+ ../../minorGems/io/OutputStream.h ../../minorGems/io/file/Directory.h \
+ map.h ../gameSource/transitionBank.h ../gameSource/objectBank.h \
+ ../gameSource/SoundUsage.h ../gameSource/animationBank.h \
+ ../gameSource/objectBank.h ../gameSource/categoryBank.h lifeLog.h \
+ foodLog.h backup.h triggers.h ../gameSource/GridPos.h playerStats.h \
+ serverCalls.h failureLog.h names.h \
+ ../../minorGems/util/random/JenkinsRandomSource.h \
+ ../../minorGems/util/random/RandomSource32.h \
+ ../../minorGems/util/random/RandomSource.h ../gameSource/spriteBank.h \
+ ../../minorGems/game/gameGraphics.h ../../minorGems/game/doublePair.h \
+ ../../minorGems/graphics/Image.h \
+ ../../minorGems/graphics/ChannelFilter.h \
+ ../../minorGems/graphics/Color.h ../../minorGems/graphics/RawRGBAImage.h \
+ ../gameSource/soundBank.h ../../minorGems/game/game.h \
+ ../../minorGems/graphics/openGL/KeyboardHandlerGL.h

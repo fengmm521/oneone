@@ -1,0 +1,88 @@
+L4 | Mon Apr 23 17:50:54 2018 (162 ms) | general | Server starting up
+L4 | Mon Apr 23 17:50:54 2018 (163 ms) | general | Server using version number 84
+L4 | Mon Apr 23 17:50:54 2018 (171 ms) | general | lifeLog starting up
+L4 | Mon Apr 23 17:50:54 2018 (171 ms) | general | Backup system inited.  Backups on = 1, target hour UTC = 8, current hour UTC = 9, last backup was 423465.848333 hours ago
+L4 | Mon Apr 23 17:50:54 2018 (668 ms) | general | foodLog starting up
+L4 | Mon Apr 23 17:50:54 2018 (668 ms) | general | failureLog starting up
+L4 | Mon Apr 23 17:50:54 2018 (702 ms) | general | No lookTimes present, not cleaning map.db
+L4 | Mon Apr 23 17:50:54 2018 (729 ms) | general | No lookTimes present, not cleaning mapTime.db
+L4 | Mon Apr 23 17:50:54 2018 (747 ms) | general | No lookTimes present, not cleaning biome.db
+L4 | Mon Apr 23 17:50:54 2018 (797 ms) | general | No lookTimes present, not cleaning floor.db
+L4 | Mon Apr 23 17:50:54 2018 (817 ms) | general | No lookTimes present, not cleaning floorTime.db
+L4 | Mon Apr 23 17:50:54 2018 (854 ms) | general | Biome 0:  Found 14 natural objects with total weight 15.000000
+L4 | Mon Apr 23 17:50:54 2018 (854 ms) | general | Biome 3:  Found 10 natural objects with total weight 7.400000
+L4 | Mon Apr 23 17:50:54 2018 (855 ms) | general | Biome 4:  Found 7 natural objects with total weight 3.410000
+L4 | Mon Apr 23 17:50:54 2018 (855 ms) | general | Biome 5:  Found 9 natural objects with total weight 4.551000
+L4 | Mon Apr 23 17:50:54 2018 (855 ms) | general | Biome 2:  Found 6 natural objects with total weight 4.500000
+L4 | Mon Apr 23 17:50:54 2018 (856 ms) | general | Biome 1:  Found 5 natural objects with total weight 7.000000
+L4 | Mon Apr 23 17:50:54 2018 (856 ms) | general | 
+Cleaning map of objects that have been removed and variable objects...
+L4 | Mon Apr 23 17:50:54 2018 (894 ms) | general | ...0 map cells were set, and 0 needed to be cleared.
+L4 | Mon Apr 23 17:50:54 2018 (898 ms) | general | ...0 contained objects present, and 0 needed to be cleared.
+L4 | Mon Apr 23 17:50:54 2018 (898 ms) | general | Listening for connection on port 8005
+L4 | Mon Apr 23 17:51:00 2018 (906 ms) | general | Apocalypse check:  New remote apocalypse:  5.
+L4 | Mon Apr 23 17:55:45 2018 (788 ms) | general | Got connection
+L4 | Mon Apr 23 17:55:45 2018 (788 ms) | general | Listening for another connection on port 8005
+L4 | Mon Apr 23 17:55:46 2018 (790 ms) | general | Got new player logged in
+L4 | Mon Apr 23 17:55:46 2018 (791 ms) | general | New player test@test.com connected as player 2
+L4 | Mon Apr 23 17:55:48 2018 (124 ms) | general | Got client message from 2: MOVE 0 0 1 0
+L4 | Mon Apr 23 17:55:48 2018 (858 ms) | general | Got client message from 2: MOVE 1 0 1 1
+L4 | Mon Apr 23 17:55:49 2018 (608 ms) | general | Got client message from 2: MOVE 2 1 -1 -1
+L4 | Mon Apr 23 17:55:59 2018 (346 ms) | general | Got client message from 2: MOVE 1 0 1 1
+L4 | Mon Apr 23 17:55:59 2018 (946 ms) | general | Got client message from 2: MOVE 2 1 -1 1
+L4 | Mon Apr 23 17:56:00 2018 (12 ms) | general | Got client message from 2: MOVE 2 1 -1 1 -1 2
+L4 | Mon Apr 23 17:56:00 2018 (946 ms) | general | Got client message from 2: MOVE 1 3 0 1 0 2
+L4 | Mon Apr 23 17:56:01 2018 (530 ms) | general | Got client message from 2: MOVE 1 5 1 1 2 1 3 1
+L4 | Mon Apr 23 17:56:02 2018 (414 ms) | general | Got client message from 2: MOVE 4 6 1 0
+L4 | Mon Apr 23 17:56:02 2018 (514 ms) | general | Got client message from 2: MOVE 4 6 1 0 2 0
+L4 | Mon Apr 23 17:56:02 2018 (980 ms) | general | Got client message from 2: MOVE 6 6 1 0
+L4 | Mon Apr 23 17:56:03 2018 (13 ms) | general | Got client message from 2: MOVE 6 6 1 0 2 0
+L4 | Mon Apr 23 17:56:03 2018 (497 ms) | general | Got client message from 2: MOVE 8 6 1 1 2 1
+L4 | Mon Apr 23 17:56:03 2018 (899 ms) | general | Got client message from 2: MOVE 9 7 1 -1 2 -1 3 -1
+L4 | Mon Apr 23 17:56:04 2018 (315 ms) | general | Got client message from 2: MOVE 10 6 1 -1 2 -1
+L4 | Mon Apr 23 17:56:04 2018 (748 ms) | general | Got client message from 2: MOVE 11 5 1 -1 2 -1
+L4 | Mon Apr 23 17:56:06 2018 (16 ms) | general | Got client message from 2: MOVE 13 4 0 1
+L4 | Mon Apr 23 17:56:06 2018 (417 ms) | general | Got client message from 2: USE 14 5
+L4 | Mon Apr 23 17:56:07 2018 (199 ms) | general | Got client message from 2: MOVE 13 5 1 -1
+L4 | Mon Apr 23 17:56:07 2018 (267 ms) | general | Got client message from 2: MOVE 13 5 1 -1 2 -1
+L4 | Mon Apr 23 17:56:07 2018 (582 ms) | general | Got client message from 2: MOVE 14 5 0 -1
+L4 | Mon Apr 23 17:56:08 2018 (33 ms) | general | Got client message from 2: MOVE 14 4 1 -1
+L4 | Mon Apr 23 17:56:08 2018 (383 ms) | general | Got client message from 2: MOVE 15 3 1 -1 2 -1
+L4 | Mon Apr 23 17:56:08 2018 (733 ms) | general | Got client message from 2: MOVE 16 2 1 -1
+L4 | Mon Apr 23 17:56:08 2018 (852 ms) | general | Got client message from 2: MOVE 16 2 1 -1 2 -1
+L4 | Mon Apr 23 17:56:09 2018 (134 ms) | general | Got client message from 2: MOVE 17 1 1 -1
+L4 | Mon Apr 23 17:56:09 2018 (182 ms) | general | Got client message from 2: MOVE 17 1 1 -1 2 -1
+L4 | Mon Apr 23 17:56:09 2018 (500 ms) | general | Got client message from 2: MOVE 18 0 1 -1 2 -1
+L4 | Mon Apr 23 17:56:09 2018 (1 ms) | general | Got client message from 2: MOVE 19 -1 1 -1 2 -1
+L4 | Mon Apr 23 17:56:10 2018 (468 ms) | general | Got client message from 2: MOVE 20 -2 1 -1
+L4 | Mon Apr 23 17:56:10 2018 (618 ms) | general | Got client message from 2: MOVE 20 -2 1 -1 1 -2
+L4 | Mon Apr 23 17:56:10 2018 (969 ms) | general | Got client message from 2: MOVE 21 -3 1 -1
+L4 | Mon Apr 23 17:56:11 2018 (51 ms) | general | Got client message from 2: MOVE 21 -3 1 -1 1 -2
+L4 | Mon Apr 23 17:56:11 2018 (869 ms) | general | Got client message from 2: MOVE 22 -5 1 -1 2 -1
+L4 | Mon Apr 23 17:56:12 2018 (403 ms) | general | Got client message from 2: MOVE 23 -6 1 -1
+L4 | Mon Apr 23 17:56:12 2018 (819 ms) | general | Got client message from 2: MOVE 24 -7 0 -1
+L4 | Mon Apr 23 17:56:13 2018 (471 ms) | general | Got client message from 2: MOVE 24 -8 -1 -1
+L4 | Mon Apr 23 17:56:13 2018 (552 ms) | general | Got client message from 2: MOVE 24 -8 -1 -1 -2 -1
+L4 | Mon Apr 23 17:56:14 2018 (736 ms) | general | Got client message from 2: MOVE 22 -9 -1 -1 -2 -2
+L4 | Mon Apr 23 17:56:15 2018 (537 ms) | general | Got client message from 2: MOVE 20 -11 1 0 2 0
+L4 | Mon Apr 23 17:56:16 2018 (604 ms) | general | Got client message from 2: MOVE 22 -11 1 1
+L4 | Mon Apr 23 17:56:17 2018 (120 ms) | general | Got client message from 2: USE 24 -10
+L4 | Mon Apr 23 17:56:18 2018 (355 ms) | general | Got client message from 2: SELF 23 -10 -1
+L4 | Mon Apr 23 17:56:19 2018 (922 ms) | general | Got client message from 2: MOVE 23 -10 0 -1
+L4 | Mon Apr 23 17:56:20 2018 (574 ms) | general | Got client message from 2: MOVE 23 -11 -1 0
+L4 | Mon Apr 23 17:57:38 2018 (747 ms) | general | Got client message from 2: MOVE 22 -11 1 0
+L4 | Mon Apr 23 17:57:39 2018 (897 ms) | general | Got client message from 2: MOVE 23 -11 0 1
+L4 | Mon Apr 23 17:57:40 2018 (297 ms) | general | Got client message from 2: USE 24 -10
+L4 | Mon Apr 23 17:57:41 2018 (313 ms) | general | Got client message from 2: SELF 23 -10 -1
+L4 | Mon Apr 23 17:57:42 2018 (530 ms) | general | Got client message from 2: USE 24 -10
+L4 | Mon Apr 23 17:57:43 2018 (515 ms) | general | Got client message from 2: SELF 23 -10 -1
+L4 | Mon Apr 23 17:57:44 2018 (432 ms) | general | Got client message from 2: USE 24 -10
+L4 | Mon Apr 23 17:57:45 2018 (517 ms) | general | Got client message from 2: SELF 23 -10 -1
+L4 | Mon Apr 23 17:57:46 2018 (366 ms) | general | Got client message from 2: USE 24 -10
+L4 | Mon Apr 23 17:57:47 2018 (269 ms) | general | Got client message from 2: MOVE 23 -10 0 1
+L4 | Mon Apr 23 17:57:48 2018 (317 ms) | general | Got client message from 2: SELF 23 -9 -1
+L4 | Mon Apr 23 17:57:48 2018 (968 ms) | general | Got client message from 2: MOVE 23 -9 0 -1
+L4 | Mon Apr 23 17:57:49 2018 (368 ms) | general | Got client message from 2: MOVE 23 -10 0 -1
+L4 | Mon Apr 23 17:58:01 2018 (606 ms) | general | Closing connection to player 2 on error (cause: Socket write failed)
+L4 | Mon Apr 23 17:58:01 2018 (606 ms) | general | 0 remaining player(s) alive on server 
+L4 | Mon Apr 23 17:58:07 2018 (614 ms) | general | Server log_game request rejected by stats server

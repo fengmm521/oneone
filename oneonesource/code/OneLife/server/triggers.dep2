@@ -1,0 +1,29 @@
+triggers.o: triggers.cpp triggers.h ../gameSource/GridPos.h \
+ ../gameSource/objectBank.h ../../minorGems/game/doublePair.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../gameSource/SoundUsage.h map.h ../../minorGems/system/Time.h \
+ ../../minorGems/util/SettingsManager.h \
+ ../../minorGems/system/MutexLock.h ../../minorGems/network/Socket.h \
+ ../../minorGems/network/HostAddress.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/util/stringUtils.h \
+ ../../minorGems/network/SocketClient.h ../../minorGems/network/Socket.h \
+ ../../minorGems/network/HostAddress.h triggers/trailerVideo.cpp \
+ triggers/../serverCalls.h triggers/../map.h
+
+triggers.dep2: triggers.cpp triggers.h ../gameSource/GridPos.h \
+ ../gameSource/objectBank.h ../../minorGems/game/doublePair.h \
+ ../../minorGems/util/SimpleVector.h ../../minorGems/common.h \
+ ../../minorGems/util/development/memory/debugMemory.h \
+ ../gameSource/SoundUsage.h map.h ../../minorGems/system/Time.h \
+ ../../minorGems/util/SettingsManager.h \
+ ../../minorGems/system/MutexLock.h ../../minorGems/network/Socket.h \
+ ../../minorGems/network/HostAddress.h ../../minorGems/io/Serializable.h \
+ ../../minorGems/io/InputStream.h ../../minorGems/io/Stream.h \
+ ../../minorGems/io/TypeIO.h ../../minorGems/io/OutputStream.h \
+ ../../minorGems/util/stringUtils.h \
+ ../../minorGems/network/SocketClient.h ../../minorGems/network/Socket.h \
+ ../../minorGems/network/HostAddress.h triggers/trailerVideo.cpp \
+ triggers/../serverCalls.h triggers/../map.h

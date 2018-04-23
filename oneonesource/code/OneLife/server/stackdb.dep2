@@ -1,0 +1,3 @@
+stackdb.o: stackdb.cpp stackdb.h
+
+stackdb.dep2: stackdb.cpp stackdb.h
