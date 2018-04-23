@@ -1,0 +1,5 @@
+../commonSource/fractalNoise.o: ../commonSource/fractalNoise.cpp \
+ ../commonSource/fractalNoise.h
+
+../commonSource/fractalNoise.dep: ../commonSource/fractalNoise.cpp \
+ ../commonSource/fractalNoise.h
