@@ -2,3 +2,5 @@
 
 *.o
 *.dep
+oneonesource/ticketServer/db/user.txt
+oneonesource/ticketServer/config.txt

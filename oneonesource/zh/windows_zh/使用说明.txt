@@ -1,0 +1,16 @@
+windows下的配置文件都为unicode编码。
+
+在完整汉化补丁下的zlib1.dll不能使用,要试着下载另外的，opengl32.dll也不能使用。别的文件直接替换就好。
+
+onelife中文修复代码.zip中保存的是windows下需要修改的三个文件。分别是
+
+OneLife/gameSource/LivingLifePage.cpp 第61行，数值改小，为了防止显示的文字重叠在一起。
+
+minorGems/game/Fone.h.  增加了四个头文件
+        #include <GL/gl.h>
+        #include <GL/glu.h>
+
+        #include <ft2build.h>
+        #include <freetype/ftglyph.h>
+
+minorGems/game/Fone.cpp 增加了unicode的freetype库文件渲染功能

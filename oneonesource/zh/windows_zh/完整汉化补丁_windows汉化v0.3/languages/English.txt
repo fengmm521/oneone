@@ -1,0 +1,278 @@
+writeFailed "错误:  游戏文件夹只读"
+
+
+measuringFPS "计算最大帧率"
+
+vsyncWarning "警告: 垂直同步禁用"
+vsyncWarning2 "(可能会引起画面撕裂)"
+
+vsyncWarning3 "显卡控制面板可以解决这个问题"
+
+vsyncContinueMessage "按下 [Y] 跳过垂直同步 或者按下 [ESC] 退出"
+
+
+fpsErrorLogin "错误:  检测到FPS不匹配。设置已修改?"
+
+
+
+loading "加载中"
+
+sprites "精灵"
+objects "对象"
+transitions "转换"
+animations "动画"
+categories "类别"
+
+groundTextures "地面纹理"
+
+
+spritesRebuild "精灵##(重建缓存)"
+objectsRebuild "对象##(重建缓存)"
+transitionsRebuild "转换##(重建缓存)"
+animationsRebuild "动画##(重建缓存)"
+categoriesRebuild "类别##(重建缓存)"
+
+
+
+
+email "邮箱"
+atSignTip "插入[@]符号"
+
+
+loginButton "登录"
+loginNoSaveButton "临时登录"
+settingsButton "设置"
+postReviewButton "发布评测"
+updateReviewButton "更新评测"
+
+reviewText "评测内容"
+reviewName "昵称"
+
+recommend "推荐"
+recommendYes "是"
+recommendNo "否"
+
+postButton "发布"
+postReviewTip "发布到官网"
+
+updateButton "更新"
+updateReviewTip "更新到官网"
+
+removeButton "删除"
+removeReviewTip "从官网删除"
+
+
+copyReviewTip "复制评测到剪切板"
+copySelectionTip "复制所选文本到剪切板"
+
+spellCheck "拼写检查"
+
+requestDenied "发布请求被拒绝"
+
+reviewPosted "评测已发布"
+reviewUpdated "评测已更新"
+reviewRemoved "评测已删除"
+
+
+
+saveTip "保存数据到本机"
+noSaveTip "不保存数据到本机"
+
+
+accountKey "秘钥"
+paste "粘贴"
+copy "复制"
+clear "清空"
+
+charLimit "达到字符上限"
+
+
+
+backButton "返回"
+restartButton "重启游戏"
+fullscreen "全屏 :"
+musicLoudness "音乐 :"
+soundLoudness "音效 :"
+
+currentFPS "当前帧率 :"
+targetFPS "目标帧率 :"
+vsyncOn "垂直同步 :"
+vsyncYes "是"
+vsyncNo "否"
+redetectButton "重新检测"
+
+
+downloadingUpdate "正在下载更新"
+applyingUpdate "正在安装更新"
+
+serverShutdownMessage "服务器正在维护##请稍后再试"
+
+upgradeMessage "请下载##最新版本"
+
+updateWritePermissionMessage "更新安装失败:##请移动游戏目录到其他##可写入的文件夹"
+
+manualRestartMessage "重启游戏以应用设置"
+
+
+loginFailed "登录失败"
+
+versionMismatch "版本不匹配 :  客户端 %d -- 服务端 %d"
+disableCustomServer "禁用自定义服务器"
+
+
+serverShutdown "服务器已关闭"
+
+serverFull "服务器爆满"
+
+
+waitingBirth "正在投胎"
+
+loadingMap "加载地图"
+
+
+lastAte "吃了"
+lastAtePermanent "被吞噬"
+
+breastMilk "喝了母乳"
+
+you "你自己"
+eat "吃"
+
+
+eatHint "嘴"
+bareHandHint "空手"
+bareGroundHint "空地"
+nothingHint "空无一物"
+eventuallyHint "(最终)"
+
+
+noHint "没有信息" 
+
+ofHint "/"
+tabHint "[TAB]"
+
+
+your "你的"
+
+mother "母亲"
+son "儿子"
+daughter "女儿"
+grand "祖"
+great "曾"
+
+brother "兄弟"
+sister "姐妹"
+
+aunt "姨妈"
+uncle "舅舅"
+
+niece "侄女"
+nephew "侄子"
+
+cousin "表亲"
+
+1th "大"
+2th "二"
+3th "三"
+4th "四"
+5th "五"
+6th "六"
+7th "七"
+8th "八"
+9th "九"
+10th "十"
+11th "十一"
+12th "十二"
+13th "十三"
+14th "十四"
+15th "十五"
+16th "十六"
+17th "十七"
+18th "十八"
+19th "十九"
+20th "二十"
+twenty "二十"
+
+distant "远房"
+
+removed "辈分"
+1Times "差一个"
+2Times "差两个"
+3Times "差三个"
+4Times "差四个"
+5Times "差五个"
+6Times "差六个"
+7Times "差七个"
+8Times "差八个"
+9Times "差九个"
+manyTimes "差许多"
+
+
+unrelated "没有血缘关系"
+
+
+
+youDied "你死了"
+
+deathAgeOne "享年:  1岁"
+deathAge "享年:  %d 岁"
+
+reasonDisconnected "死因:  失去同步"
+
+reasonHunger "死因:  饿死"
+
+reasonNursingHunger "死因:  没人喂奶"
+
+reasonKilled "死因:  死于"
+
+reasonKilledUnknown "死因:  死于未知武器"
+
+reasonOldAge "死因:  年老"
+
+reasonUnknown "死因:  未知"
+
+reasonApocalypse "死因:  世界末日"
+
+
+okay "好吧"
+quit "不玩了"
+
+reborn "投胎再来"
+
+
+
+
+pauseMessage1 "真的不玩了?"
+
+pauseMessage2 "按下 [ENTER] 取消"
+
+
+pauseMessage3 "按下 [%] 退出"
+pauseMessage3b "暂时还不能退出"
+
+pauseMessage4 "-"
+
+
+
+quitMessage "[ESC] 退出"
+
+
+
+playbackTag           "回访 %:"
+playbackToggleMessage "(按下 [%] 隐藏)"
+playbackEndMessage    "(按下 [ESC] 结束)"
+
+
+enterDemoCode  "输入演示代码:"
+checkingCode  "正在通过服务器检查权限..."
+
+
+
+responseWarning "无法连接到服务器##尝试重新连接 %d"
+
+
+err_webRequest   "错误:  网页请求失败"
+err_codeFailed  "演示代码被服务器拒绝"
+err_serverVerifyFailed  "服务器返回结果无法认证"
+
+err_badServerResponse  "错误:  未知错误"

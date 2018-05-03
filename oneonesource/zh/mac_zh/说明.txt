@@ -1,0 +1,34 @@
+mac版汉化与windows汉化方法相同，都是使用freetype库。但mac使用utf8编码的配置文件
+
+mac版在编译时注意引入的库,可能要修改
+
+
+OneLife/gameSource目录下的makefile文件，加上libjpeg.a,libpng.a,libz.a
+
+并且在第24行中加入freetype库的引用说明"-lfreetype"。后边加入三个的正确路径
+PLATFORM_LINK_FLAGS = -framework OpenGL -lfreetype -framework  SDL -framework Cocoa ../../minorGems/game/platforms/SDL/mac/SDLMain.m ${CUSTOM_MACOSX_LINK_FLAGS}
+
+# for headless builds with no GL or SDL
+PLATFORM_LINK_FLAGS_HEADLESS = ${CUSTOM_MACOSX_LINK_FLAGS}
+
+
+
+# not used for some builds
+PLATFORM_LIBJPEG_FLAG = /Users/mage/Documents/github/oneone/oneonesource/zh/mac_zh/frameworks/libjpeg.a
+
+# not used for some builds
+PLATFORM_LIBPNG_FLAG = /Users/mage/Documents/github/oneone/oneonesource/zh/mac_zh/frameworks/libz.a /Users/mage/Documents/github/oneone/oneonesource/zh/mac_zh/frameworks/libpng.a
+
+
+代码修改
+1.minorGems/game/Font.h中加入下边三个渲染的头文件，在使用时请将freetype的库放入xcode的库目录中,路径为:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr
+其中SDL.framework要使用官方的framework，并且放入/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks目录
+        #import <OpenGL/gl.h>
+        #import <OpenGL/glu.h>
+        #include <ft2build.h>
+        #include <freetype/ftglyph.h>
+2.minorGems/game/Font.cpp,增加了utf8转unicode的代码，并且把文字渲染逻辑也放入了，具体可看代码部分
+
+3.同windows版本一样，修改了OneLife/gameSource/LivingLifePage.cpp中的61行，将数值改小为0.15
+static float pencilErasedFontExtraFade = 0.15;
