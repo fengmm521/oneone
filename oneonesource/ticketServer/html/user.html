@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8"> 
-	<title>服务器列表</title>
-	<style type='text/css'>
-	#header {
+    <meta charset="utf-8"> 
+    <title>玩家列表</title>
+    <style type='text/css'>
+    #header {
             background-color:black;
             color:white;
             text-align:center;
             padding:5px;
         }
     </style>
-	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
-	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript">
             function changeURL(){
                 // var url = document.getElementById('url').value;
-                var url = 'list.html'
+                var url = 'user.html'
                 window.history.pushState({},0,'http://'+window.location.host+'/'+url);      
             }
             window.onload = function(){
@@ -32,9 +32,10 @@
     <h3>--qq群:132871641</h3>
 </div>
 <ul class="nav nav-tabs">
-	<li class="active"><a href="./list.html">服务器列表</a></li>
-	<li><a href="./user.html">玩家例表</a></li>
+    <li><a href="./list.html">服务器列表</a></li>
+    <li class="active"><a href="./user.html">玩家例表</a></li>
 </ul>
-<iframe id="listframe" name="listframe" src="./slistframe.html" frameborder="0" width="100%" height="640"></iframe>
+<iframe id="userframe" name="userframe" src="./ulistframe.html" frameborder="0" width="100%" height="640"></iframe>
+
 </body>
 </html>

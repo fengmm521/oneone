@@ -102,6 +102,15 @@ class myHandler(BaseHTTPRequestHandler):
             self.sendTxtMsg("VALID")
         else:
             self.sendTxtMsg("INVALID")
+
+    def regGame(self.cdataobj):
+        isPass = False
+        pemail = cdataobj['email']
+        ppwd = cdataobj['pwd']
+        pcode = cdataobj['cod']
+        pname = cdataobj['name']
+        print(pemail,ppwd,pcode,pname)
+
     def checkCookie(self,cookiestr):
         if cookiestr:
             updateUser()
@@ -211,11 +220,9 @@ class myHandler(BaseHTTPRequestHandler):
             nbytes = int(length)
             data = self.rfile.read(nbytes)
             msgobj = self.decodePostData(data)
-            if reqtype == 'login':  
+            if reqtype == 'ooreg':  
                 updateUser()
-                self.login(msgobj)
-            elif reqtype == 'additem':
-                self.addItems(msgobj)
+                self.regGame(msgobj)
             elif self.path == "/index.html":
                 return
             else:

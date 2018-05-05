@@ -2,8 +2,7 @@
 <html>
 <head>
         <meta http-equiv='Content-Type' content='text/html;charset=utf-8' />
-        <link rel='icon' href='/home/wu/lanrenimg/5.gif' />
-        <title>比价系统</title>
+        <title>One Hour One Life欢乐游戏群</title>
         <style type='text/css'>
         #login {
                 text-align:center;
@@ -15,7 +14,7 @@
                 text-align:center;
                 padding:5px;
         }
-        #utip,#ptip,#rtip,#mtip {color:red;font-size:10px;}
+        #ptip,#mtip {color:red;font-size:10px;}
         #header {
             background-color:black;
             color:white;
@@ -23,30 +22,17 @@
             padding:5px;
         }
         </style>
+        <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+        <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script>
-        function verun()
-        {
-                var uname=document.getElementById('usename').value;
-                if(uname==''||uname==null)
-                {
-                        document.getElementById('utip').innerHTML='请填写用户名';
-                        document.getElementById('usename').focus();
-                        return false;
-                }
-                else 
-                {
-                        document.getElementById('utip').innerHTML='';
-                        return true;
-                }
-        }
-        
         function verpwd()
         {
                 var pwd=document.getElementById('pwd').value;
                 if(pwd==''||pwd==null)
                 {
                         document.getElementById('ptip').innerHTML='请填写密码';
-                        document.getElementById('pwd').focus();
+                        // document.getElementById('pwd').focus();
                         return false;
                 }
                 else
@@ -55,31 +41,13 @@
                         return true;
                 }
         }
-
-        function verrepwd()
-        {
-                var repwd=document.getElementById('repwd').value;
-                var pwd=document.getElementById('pwd').value;
-                if(repwd!==pwd)
-                {
-                        document.getElementById('rtip').innerHTML='密码不一致';
-                        document.getElementById('repwd').focus();
-                        return false;
-                }
-                else 
-                {
-                        document.getElementById('rtip').innerHTML='';
-                        return true;
-                }
-        }
-
         function vermail()
         {
                 var mail=document.getElementById('mail').value;
                 if(mail==''||mail==null||mail.indexOf('@')==0||mail.indexOf('.')-mail.indexOf('@')<=1)  //邮箱验证不完善
                 {
                         document.getElementById('mtip').innerHTML='请填写有效的邮箱';
-                        document.getElementById('mail').focus();
+                        // document.getElementById('mail').focus();
                         return false;
                 }
                 else
@@ -91,11 +59,11 @@
 
         function check()
         {
-                if(verun() && verpwd() && verrepwd() && vermail()==true)
+                if(vermail() && verpwd()==true)
                         return true;
                 else 
                 {
-                        alert('注册失败，请按要求填写信息！')
+                        alert('登陆失败，请输入邮箱帐号和密码！')
                         return false;
                 }
         }
@@ -112,45 +80,49 @@
 </head>
 <body>
         <div id="header">
-        <h1>比价系统</h1>
+        <h1>自建One Hour One Life服务器</h1>
+        <h3>--qq群:132871641</h3>
         </div>
+        <p> </p>
         <div id='login'>
                 <form action='./login' onsubmit="return check();" method='post'>
                 <table align="center">                
                         <tr>
-                                <td><span class='must'>*</span>用户名：</span></td>
-                                <td><input type='text' name='usename' id='usename' onblur='verun()' /></td>
-                                <td style='width:80px;'><span id='utip'></span></td>
+                                <td><span class='must'>*</span>帐号邮箱：</span></td>
+                                <td><input type='text' name='mail' id='mail' onblur='vermail()' /></td>
+                                <td style='width:80px;'><span id='mtip'></span></td>
                         </tr>
                         <tr>
-                                <td><span class='must'>*</span>密码：</span></td>
+                                <td><span class='must'>*</span>帐号密码：</span></td>
                                 <td><input type='password' name='pwd' id='pwd' onblur='verpwd()' /></td>
                                 <td style='width:80px;'><span id='ptip'></span></td>
+                        </tr>
+                        <tr>
+                                <td> <p></p> </td>
+                                <td></td>
+                                <td> </td>
                         </tr>
                         <tr>
                                 <td colspan='3' style='text-align:center;'><input type='submit' value='登陆' /></td>
                         </tr>
                 </table>
                 </form>
+                
                 <!-- <iframe name='hidden_frame' id="hidden_frame" style='display: none'></iframe> -->
         </div>
+        <p> </p>
         <div id='regist'>
                 <form action='./reg.html' onsubmit="" method='get'>
                 <table align="center">                
                         <tr>
-                                <td colspan='1' style='text-align:center;'><input type='submit' value='注册' /></td>
+                            <td colspan='1' style='text-align:center;'><input type='submit' value='注册' /></td>
                         </tr>
                 </table>
                 </form>
         </div>
-<!--  <script>
-    var iframe=document.getElementById("hidden_frame");
-    iframe.onload= function () {
-        var bodycontent=iframe.contentDocument.body.innerText;
-        console.log(bodycontent);
-        //处理获取到的内容；
-        alert(bodycontent)
-    }
-</script> -->
+        <p> </p>
+        <p align="center" style="color:#228F00;" > 登陆后可查看服务器状态 </p>
+
+
 </body>
 </html>
