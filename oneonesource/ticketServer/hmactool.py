@@ -3,7 +3,7 @@
 import hashlib
 import hmac
 
-sk = "demosk"
+sk = "sk"
 msg = "2"
 
 def get_authorization(sk, msg):  

@@ -1,0 +1,8 @@
+user.txt中为用户帐号
+
+newcode.txt,新生成的邀请码,当这里的邀请码用完后，程序会自动生成新的邀请码加到文件末尾,用户注册时使用的邀请码会从这里移到actioncode.txt中
+
+actioncode.txt,保存用户已注册，但是还没有登陆的邀请码
+
+logincode.txt,保存用户已注册，且已登陆过一次的邀请码，这里的邀请码是在用户登陆过一次后从actioncode.txt中转移过来
+

@@ -19,9 +19,10 @@ import mimetypes
 import json
 import base64
 import hashlib
-import urllib
 import datetime
 
+import rsadecodetool
+import hmactool
 
 import zlib
 
@@ -29,6 +30,7 @@ import zlib
 
 import BS4HTMLTool
 
+rsatool = rsadecodetool.prpcrypt()
 
 try:
     from cStringIO import StringIO
@@ -61,7 +63,26 @@ allUserData = {}
 #服务器初始化用户数据
 def initAllUserData():
     global allUserData
+    allUserData = {}
+    f = open('db/user.txt','r')
+    lines = f.readlines()
+    f.close()
+    for l in lines:
+        tmpl = l.replace('\n','')
+        dats = tmpl.split(',')
+        allUserData[dats[0]] = {}
+        #email@test.com,gametest77889900,name,qq,yaoqingcode,注册ip地址,注册日期,购买次数
+        allUserData[dats[0]]['email'] = dats[0]
+        allUserData[dats[0]]['pwd'] = dats[1]
+        allUserData[dats[0]]['name'] = dats[2]
+        allUserData[dats[0]]['qq'] = dats[3]
+        allUserData[dats[0]]['code'] = dats[4]
+        allUserData[dats[0]]['ip'] = dats[5]
+        allUserData[dats[0]]['date'] = dats[6]
+        allUserData[dats[0]]['buy'] = int(dats[7])
 
+
+initAllUserData()
 
 def updateUser():
     global configdic
@@ -98,21 +119,61 @@ def createUserListHtml():
     return outhtml
 
 #保存新用户帐号
-def saveNewUserData(cdataobj):
-    pemail = cdataobj['email']
-    ppwd = cdataobj['pwd']
-    pname = cdataobj['name']
-    pqq = cdataobj['qq']
-    pcode = cdataobj['code']
-    pqun = cdataobj['qun']
-    pregtime = int(time.time())
-    pregdate = 
-    pass
+def saveNewUserData(email,pstr):
+    global allUserData
+    if email in allUserData:
+        allUserData[email]['buy'] += 1
+        cmd = 'cp db/user.txt db/userback.txt'
+        os.system(cmd)
+        outstr = ''
+        #email@test.com,gametest77889900,name,qq,yaoqingcode,注册ip地址,注册日期
+        tmpstr = pstr.replace('\n','')
+        pdatas = tmpstr.split(',')
+        for k in allUserData.keys():
+            if k == email:
+                outstr += pdatas[0] + ',' + pdatas[1] + ',' + pdatas[2] + ',' + pdatas[3] + ',' + pdatas[4] + ',' + pdatas[5]+ ',' + pdatas[6] + ',' + str(allUserData[k][buy])
+            else:
+                outstr += k + ',' + allUserData[k]['pwd'] + ',' + allUserData[k]['name'] + ',' + allUserData[k]['qq'] + ',' + allUserData[k]['code'] + ',' + allUserData[k]['ip'] + ',' + allUserData[k]['date'] + ',' + str(allUserData[k][buy])
+            outstr += '\n'
+        f = open('db/user.txt','w')
+        f.write(outstr)
+        f.close()
+
+    else:
+        f = open('db/user.txt','a+')
+        f.write(pstr)
+        f.close()
+        datas = pstr.split(',')
+        allUserData[dats[0]] = {}
+        allUserData[dats[0]]['email'] = dats[0]
+        allUserData[dats[0]]['pwd'] = dats[1]
+        allUserData[dats[0]]['name'] = dats[2]
+        allUserData[dats[0]]['qq'] = dats[3]
+        allUserData[dats[0]]['code'] = dats[4]
+        allUserData[dats[0]]['ip'] = dats[5]
+        allUserData[dats[0]]['date'] = dats[6]
+        allUserData[dats[0]]['buy'] = int(dats[7])
+
+#验证邀请码是否存在，或者是否已被使用
+def checkCode(code):
+    f = open('db/newcode.txt','r')
+    lines = f.readlines()
+    f.close()
+    for l in lines:
+        tmpl = l.replace('\n','')
+        if tmpl == code:
+            return True
+    return False
 
 #查看用户帐号和密码是否正确，用以登陆网页
-def checkUserLogin():
-    pass
+def checkUserLogin(email,pwd):
+    if allUserData[email]['pwd'] == pwd:
+        return True
+    else:
+        return False
 
+def getUserPwd(email):
+    return allUserData[email]['pwd']
 
 class myHandler(BaseHTTPRequestHandler):
     
@@ -124,27 +185,53 @@ class myHandler(BaseHTTPRequestHandler):
         # self.sendMsg('login')
         # {'pwd': 'aaa', 'usename': 'aaa'}
         isPass = False
-        pemail = logindat['email']
-        phashvalue = logindat['hash_value']
-        pstringToHash = logindat['string_to_hash']
-        paction = logindat['action']
-
-        if isPass:
+        pemail = urllib.unquote(logindat['email'])      #邮箱
+        phashvalue = logindat['hash_value']             #字符串hash后的结果
+        pstringToHash = logindat['string_to_hash']      #使用hash的字符串
+        paction = logindat['action']                    #check_ticket_hash
+        if paction != 'check_ticket_hash':
+            print('paction=%s'%(paction))
+            return
+        sk = getUserPwd(pemail)
+        tmphash = hmactool.get_authorization(sk, pstringToHash)
+        if tmphash == phashvalue:
             self.sendTxtMsg("VALID")
         else:
             self.sendTxtMsg("INVALID")
 
     def regGame(self.cdataobj):
-        isPass = False
-        pemail = cdataobj['email']
-        ppwd = cdataobj['pwd']
         pcode = cdataobj['cod']
-        pname = cdataobj['name']
-        print(pemail,ppwd,pcode,pname)
+        pcode = rsadecodetool.decryptWithGhostPriKey(pcode)
+
+        if checkCode(pcode):
+            pemail = cdataobj['email']
+            pemail = rsatool.decryptWithGhostPriKey(pemail)
+            ppwd = cdataobj['pwd']
+            ppwd = rsadecodetool.decryptWithGhostPriKey(ppwd)
+            
+            pname = cdataobj['name']
+            pqq = cdataobj['qq']
+
+            print(pemail,ppwd,pcode,pname)
+            #email@test.com,gametest77889900,name,qq,yaoqingcode,注册ip地址,注册日期
+            outstr = pemail + ',' + ppwd + ',' + pname + ',' + pqq + ',' + pcode + ',' + self.client_address[0] + ',' +time.strftime("%Y-%m-%d_%H:%M:%S", time.localtime()) + ',' + '1\n'
+            saveNewUserData(outstr)
+            self.sendHtmlStr('注册成功，游戏客户端在群共享中，请从QQ群中下载。')
+        else:
+            self.sendHtmlStr('输入的邀请码错误，请确认你输入了正确的邀请码.')
 
     def userLogin(self,cdataobj):
         pemail = cdataobj['email']
+        pemail = rsadecodetool.decryptWithGhostPriKey(pemail)
         ppwd = cdataobj['pwd']
+        ppwd = rsadecodetool.decryptWithGhostPriKey(ppwd)
+        print(pemail,ppwd)
+        if checkUserLogin(pemail, ppwd):
+            f = open('html/list.html','r')
+            self.sendHtml(f.read())
+            f.close()
+        else:
+            self.sendHtmlStr('登陆失败，用户名或者密码错误.')
 
     def checkCookie(self,cookiestr):
         if cookiestr:
