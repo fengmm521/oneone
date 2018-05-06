@@ -57,7 +57,11 @@ users = {}
 
 usercookies = []
 
-bs4Requesttool = BS4HTMLTool.BS4HTMLTool()
+allUserData = {}
+#服务器初始化用户数据
+def initAllUserData():
+    global allUserData
+
 
 def updateUser():
     global configdic
@@ -81,10 +85,37 @@ def getNewCookieExpTime():
     return expiration
 
 
+def createServerListHtml():
+    f = open('html/slistframe.html','r')
+    outhtml = f.read()
+    f.close()
+    return outhtml
+
+def createUserListHtml():
+    f = open('html/ulistframe.html','r')
+    outhtml = f.read()
+    f.close()
+    return outhtml
+
+#保存新用户帐号
+def saveNewUserData(cdataobj):
+    pemail = cdataobj['email']
+    ppwd = cdataobj['pwd']
+    pname = cdataobj['name']
+    pqq = cdataobj['qq']
+    pcode = cdataobj['code']
+    pqun = cdataobj['qun']
+    pregtime = int(time.time())
+    pregdate = 
+    pass
+
+#查看用户帐号和密码是否正确，用以登陆网页
+def checkUserLogin():
+    pass
+
 
 class myHandler(BaseHTTPRequestHandler):
     
-    global bs4Requesttool
     #刷新数据
     #http://sell1.woodcol.com:8902/ticketserver?action=check_ticket_hash&email=test%40test.com&hash_value=1cd5e064500c686a76d923b646437e06f693eaef&string_to_hash=2
     #text/html; charset=UTF-8
@@ -111,6 +142,10 @@ class myHandler(BaseHTTPRequestHandler):
         pname = cdataobj['name']
         print(pemail,ppwd,pcode,pname)
 
+    def userLogin(self,cdataobj):
+        pemail = cdataobj['email']
+        ppwd = cdataobj['pwd']
+
     def checkCookie(self,cookiestr):
         if cookiestr:
             updateUser()
@@ -134,8 +169,11 @@ class myHandler(BaseHTTPRequestHandler):
             #根据请求的文件扩展名，设置正确的mime类型  
             if self.path.endswith(".html"):  
                 if self.checkCookie(cookiestr):
-                    if self.path[-14:] == 'listframe.html':
-                        htmlstr = createListHtml()
+                    if self.path[-15:] == 'slistframe.html':
+                        htmlstr = createServerListHtml()
+                        self.sendHtmlStr(htmlstr)
+                    elif self.path[-15:] == 'ulistframe.html':
+                        htmlstr = createUserListHtml()
                         self.sendHtmlStr(htmlstr)
                     else:
                         fpth = curdir + os.sep + 'html' + os.sep + self.path
@@ -147,27 +185,15 @@ class myHandler(BaseHTTPRequestHandler):
             elif self.path[1:4] == 'img':
                 fpth = curdir + self.path
                 self.sendImage(fpth)
+            elif self.path[1:4] == 'bin':
+                fpth = curdir + self.path
+                self.sendJsFile(fpth)
             elif self.path[1:6] == 'login':#客户端登录
                 print('login--->',self.path)
                 return 'login'
-            elif self.path[1:8] == 'additem': #增加新商品
-                print('additem---->',self.path)
-
-                return 'additem'
-            elif self.path[1:4] == 'del':
-                if self.checkCookie(cookiestr):
-                    print(self.path)
-                    tidtmp = self.path.split('?')[1]
-                    dats = tidtmp.split('=')
-                    print(dats)
-                    ktmp = dats[0]
-                    tid = dats[1]
-                    self.removeItem(tid)
-                else:
-                    jobj = {'erro':1,'msg':'用户未登陆'}
-                    msg = json.dumps(jobj,ensure_ascii=False)
-                    self.sendTxtMsg(msg)
-                    return
+            elif self.path[1:6] == 'ooreg': #用户注册
+                print('ooreg---->',self.path)
+                return 'ooreg'
             else:
                 time.sleep(3)
                 self.sendEmptyMsg()
@@ -190,6 +216,15 @@ class myHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(f.read())  
         f.close()  
+
+    def sendJsFile(self,jsfpth):
+        f = open(jsfpth,'r')
+        mimetype='application/javascript'
+        self.send_response(200)
+        self.send_header('Content-type',mimetype)
+        self.end_headers()
+        self.wfile.write(f.read())
+        f.close()
     
     def sendHtml(self,fpth,pcookie = None):
         f = open(fpth, 'rb') 
@@ -223,6 +258,8 @@ class myHandler(BaseHTTPRequestHandler):
             if reqtype == 'ooreg':  
                 updateUser()
                 self.regGame(msgobj)
+            elif reqtype == 'login':
+                self.userLogin(msgobj)
             elif self.path == "/index.html":
                 return
             else:
