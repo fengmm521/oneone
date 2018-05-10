@@ -10,3 +10,4 @@ oneonesource/ticketServer/db/newcode.txt
 oneonesource/ticketServer/db/userlogin/gp@woodcol.com.txt
 *.pyc
 oneonesource/ticketServer/test/2018_05May_10_Thursday.txt
+*.db
