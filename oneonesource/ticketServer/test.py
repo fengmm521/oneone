@@ -58,11 +58,30 @@ def today():
     otherStyleTime = time.strftime("%Y_%m%B_%d_%A", timeArray)
     print(otherStyleTime)
 
+
+# >>> crazystring = ‘dade142.;!0142f[.,]ad’
+
+# 只保留数字 >>> filter(str.isdigit, crazystring) ‘1420142’
+
+# 只保留字母 >>> filter(str.isalpha, crazystring) ‘dadefad’
+
+# 只保留字母和数字 >>> filter(str.isalnum, crazystring) ‘dade1420142fad’
+
+# 如果想保留数字0-9和小数点’.’ 则需要自定义函数
+
+# >>> filter(lambda ch: ch in ‘0123456789.’, crazystring) ‘142.0142.’
+
+# 或者使用正则表达式或循环
+def test2():
+    crazystring = 'dade142.;!0142f[.,]ad'
+    tmpstr = filter(str.isalnum, crazystring)
+    print(tmpstr)
+
 #测试
 if __name__ == '__main__':
     # main()
-    test()
-    today()
+    test2()
+    # today()
 
 
 

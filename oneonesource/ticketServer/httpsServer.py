@@ -319,7 +319,11 @@ def checkCode(code):
 
 #查看用户帐号和密码是否正确，用以登陆网页
 def checkUserLogin(email,pwd):
-    if allUserData[email]['pwd'] == pwd:
+    rpwd = allUserData[email]['pwd']
+    tmppwd = removeSKOtherWord(rpwd)
+    if rpwd == pwd:
+        return True
+    elif tmppwd == pwd:
         return True
     else:
         return False
@@ -330,6 +334,12 @@ def getUserPwd(email):
 def getServerUserListHtml(serverid):
     pass
 
+
+def removeSKOtherWord(pword):
+    tmpword = pword.upper()
+    tmpstr = filter(str.isalnum, tmpword) #只保留字母和数字
+    tmpstr = tmpstr.replace('I','').replace('O','').replace('1','').replace('0','') #删除IO10四个字符
+    return tmpstr
 
 class myHandler(BaseHTTPRequestHandler):
     
@@ -350,6 +360,7 @@ class myHandler(BaseHTTPRequestHandler):
             self.sendEmptyMsg()
             return
         sk = getUserPwd(pemail)
+        sk = removeSKOtherWord(sk)
         tmphash = hmactool.get_authorization(sk, pstringToHash)
         if tmphash == phashvalue:
             self.sendTxtMsg("VALID")
@@ -361,10 +372,9 @@ class myHandler(BaseHTTPRequestHandler):
         pcode = rsatool.decryptWithGhostPriKey(pcode)
         if checkCode(pcode):
             pemail = urllib.unquote(cdataobj['mail'])
-            pemail = rsatool.decryptWithGhostPriKey(pemail)
+            pemail = rsatool.decryptWithGhostPriKey(pemail).upper()
             ppwd = urllib.unquote(cdataobj['pwd'])
             ppwd = rsatool.decryptWithGhostPriKey(ppwd)
-            
             pname = cdataobj['usename']
             pqq = cdataobj['qq']
 
@@ -387,7 +397,7 @@ class myHandler(BaseHTTPRequestHandler):
     def userLogin(self,cdataobj):
         pemail = urllib.unquote(cdataobj['mail'])
         print(pemail)
-        pemail = rsatool.decryptWithGhostPriKey(pemail)
+        pemail = rsatool.decryptWithGhostPriKey(pemail).upper()
         print('---')
         print(pemail)
         ppwd = urllib.unquote(cdataobj['pwd'])

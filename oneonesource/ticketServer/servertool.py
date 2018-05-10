@@ -65,8 +65,8 @@ class ServerUser(object):
             if accountcount[k] > minxing:
                 minxing = accountcount[k]
                 minxinguser = k
-        if len(users) > 10:
-            users = users[-10:]
+        if len(users) > 30:
+            users = users[-30:]
         return users,minxinguser
 
     #获取服务器状态
