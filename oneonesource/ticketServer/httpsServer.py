@@ -421,7 +421,7 @@ class myHandler(BaseHTTPRequestHandler):
                 self.path="/list.html"
             else:
                 self.path="/index.html"  
-        elif self.path[1:13] == "ticketserver": 
+        if self.path[1:13] == "ticketserver": 
             #http://sell1.woodcol.com:8902/ticketserver?action=check_ticket_hash&email=test%40test.com&hash_value=1cd5e064500c686a76d923b646437e06f693eaef&string_to_hash=2
             tcikobj = self.path.split('?')[1]
             tmpobj = tcikobj.split('&')
