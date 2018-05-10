@@ -127,9 +127,13 @@ userdatas = []
 def createServerListHtml():
     global userdatas
     count,minxinguser,userdatas = serverstattool.getServerStat()
-    userqq = allUserData[minxinguser]['qq']
-    username = allUserData[minxinguser]['name']
-    outname = username + '(' + userqq + ')'
+    try:
+        userqq = allUserData[minxinguser]['qq']
+        username = allUserData[minxinguser]['name']
+        outname = username + '(' + userqq + ')'
+    except Exception as e:
+        outname = minxinguser
+    
     f = open('html/slistframe.html','r')
     outhtml = f.read()
     f.close()
@@ -186,9 +190,13 @@ def createUserListHtml():
     userdatas.reverse()
     for u in userdatas:
         #[account,isB,tstr,age,fposion,playerstat,countplayer,parent]
-        userqq = allUserData[u[0]]['qq']
-        username = allUserData[u[0]]['name']
-        d1 = username + '(' + userqq + ')'
+        try:
+            userqq = allUserData[u[0]]['qq']
+            username = allUserData[u[0]]['name']
+            d1 = username + '(' + userqq + ')'
+        except Exception as e:
+            d1 = u[0]
+        
         d2 = '出生'
         if u[1] == 'D':
             d2 = '死亡'
@@ -201,9 +209,13 @@ def createUserListHtml():
 
         d7 = ''
         if u[7] != 'noParent':
-            userqq7 = allUserData[u[7]]['qq']
-            username7 = allUserData[u[7]]['name']
-            d7 = username7 + '(' + userqq7 + ')'
+            try:
+                userqq7 = allUserData[u[7]]['qq']
+                username7 = allUserData[u[7]]['name']
+                d7 = username7 + '(' + userqq7 + ')'
+            except Exception as e:
+                d7 = u[7]
+            
         else:
             d7 = '夏娃'
         d8 = u[6]
