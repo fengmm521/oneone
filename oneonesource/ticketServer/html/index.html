@@ -24,7 +24,6 @@
         </style>
         <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
         <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
-        <!-- <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script> -->
         <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="bin/jsencrypt.min.js"></script>
         <script>
@@ -73,16 +72,19 @@
         function doLogin(){
             if (check())
             {
-                var publickey = "-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDAOWvcoFpiz1pOqrO0RdUHZz+v\nxUS5sNdRnNmlRCl8dZradT0l4Pz2zgMtglPV/nAxp8uSZz3WbXCvVrdF4EXLsDWI\nAGJIcz+wg4aEOUNHRTeNWyh7LwVHhGt9sEHDle//3WNOgptrxDc01Wt9VAz4q7ZX\n10EyJzS3PGCwJzDQ2QIDAQAB\n-----END PUBLIC KEY-----";
                 var encrypt = new JSEncrypt();
-                encrypt.setPublicKey(publickey);
+                encrypt.setPublicKey($('#pubkey').val());
+
                 var mail=document.getElementById('mail').value;
                 var enemail = encrypt.encrypt(mail);
+
                 var pwd=document.getElementById('pwd').value;
                 var enpwd=encrypt.encrypt(pwd);
+
                 document.getElementById('mail').value = enemail;
                 document.getElementById('pwd').value = enpwd;
                 loginForm.submit();
+                document.getElementById('mail').value = mail;
             }
         }
 
@@ -99,9 +101,15 @@
 </head>
 <body>
         <div id="header">
-        <h1>自建One Hour One Life服务器</h1>
+        <h1>One Hour One Life超极版</h1>
         <h3>--qq群:132871641</h3>
         </div>
+        <textarea id="pubkey" rows="15" cols="65" style="display:none">-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDAOWvcoFpiz1pOqrO0RdUHZz+v
+xUS5sNdRnNmlRCl8dZradT0l4Pz2zgMtglPV/nAxp8uSZz3WbXCvVrdF4EXLsDWI
+AGJIcz+wg4aEOUNHRTeNWyh7LwVHhGt9sEHDle//3WNOgptrxDc01Wt9VAz4q7ZX
+10EyJzS3PGCwJzDQ2QIDAQAB
+-----END PUBLIC KEY-----</textarea>
         <p> </p>
         <div id='login'>
                 <form action='./login' id="loginForm" method='post'>
@@ -122,7 +130,7 @@
                                 <td> </td>
                         </tr>
                         <tr>
-                                <td colspan='3' style='text-align:center;'><input class="submit" type='submit' value='登 录' onclick="dologin()"/></td>
+                                <td colspan='3' style='text-align:center;'><input class="submit" type='submit' value='登 录' onclick="doLogin()"/></td>
                         </tr>
                 </table>
                 </form>

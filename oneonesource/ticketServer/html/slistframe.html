@@ -3,59 +3,76 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript">
+    
+        function gotouser(){
+            // userform.submit();
+            if (window != top) 
+            {
+                top.location.href = "./user.html"; 
+            }
+        }
+
+</script>
 <title>服务器列表</title>
 </head>
-
 <body>
 <table width="900" height="100%" border="0" align="center" >
   <tr>
         <td valign="middle" align="left" width="20" height="40" overflow="hidden" display="block" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;font-weight:bold;">
             服务器编号
         </td>
-        <td valign="middle" align="left" width="20" height="40" overflow="hidden" display="block" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;font-weight:bold;">
+        <td valign="middle" align="center" width="40" height="40" overflow="hidden" display="block" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;font-weight:bold;">
             qq群
         </td>
         <td width="40" align="center" height="40" align="center" valign="middle" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;font-weight:bold;">
             服务器名称
         </td>
-        <td valign="middle" width="40" height="40" overflow="hidden" display="block" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;font-weight:bold;">
+        <td valign="middle" width="60" height="40" overflow="hidden" display="block" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;font-weight:bold;">
             服务器地址
         </td>
         <td valign="middle" align="center" width="40" height="40" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;font-weight:bold;">
             服务器人数
         </td>
-        <td valign="middle" align="center" width="60" height="40" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;font-weight:bold;">
-            当日游戏高手(平均年龄最大)
+        <td valign="middle" align="center" width="50" height="40" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;font-weight:bold;">
+            当日明星玩家(qq)
         </td>
         <td valign="middle" align="center" width="40" height="40" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;font-weight:bold;">
             玩家情况
         </td>
   </tr>
-  <!-- $1 -->
+
+  $1    
+
   <tr>
         <td valign="middle" align="center" width="30" height="40" overflow="hidden" display="block" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
             1
         </td>
-        <td valign="middle" align="left" width="20" height="40" overflow="hidden" display="block" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
+        <td valign="middle" align="left" width="40" height="40" overflow="hidden" display="block" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
             132871641
         </td>
         <td width="40" align="center" height="40" align="center" valign="middle" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
             野醋栗
         </td>
-        <td valign="middle" width="40" height="40" overflow="hidden" display="block" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
+        <td valign="middle" width="60" height="40" overflow="hidden" display="block" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
             server1.woodcol.com
         </td>
         <td valign="middle" align="center" width="40" height="40" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
             0/200
         </td>
         <td valign="middle" align="center" width="60" height="40" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
-            aaa(35)
+            mage
         </td>
         <td valign="middle" align="center" width="40" height="40" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
-            <a href="./userlist?serverid=1">查看今日玩家战况</a>
+        <form action='./userlist?serverid=1' id="userform" method='get'>
+            <input class="submit" type='submit' value='查看今日玩家战况' onclick="gotouser()"/>
+        </form>
+            
+            <!-- <a href="./userlist?serverid=1" target="_parent">查看今日玩家战况</a> -->
         </td>
   </tr>
-    <!-- $2 -->
+
+    $2    
 
 </table>
 </body>

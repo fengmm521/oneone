@@ -28,7 +28,31 @@ import zlib
 
 # import Cookie
 
-import BS4HTMLTool
+import servertool
+
+reload(sys)  
+sys.setdefaultencoding('utf8')  
+
+
+configdic = {}
+
+users = {}
+
+usercookies = {}    #usercookies
+
+def updateUser():
+    global configdic
+    global users
+    global usercookies
+    f = open('./config.txt','r')
+    jstr = f.read()
+    f.close()
+    configdic = json.loads(jstr)
+
+updateUser()
+
+
+serverstattool = servertool.ServerUser(configdic['logdir'])
 
 rsatool = rsadecodetool.prpcrypt()
 
@@ -44,20 +68,23 @@ import socket
 hostname = socket.gethostname()
 selfip = socket.gethostbyname(hostname)
 
+
+
+
 setLastIP = selfip
 
-reload(sys)  
-sys.setdefaultencoding('utf8')  
+
 
 print 'selfIP:',selfip
 print 'setLastIP:',setLastIP
 
 
-configdic = {}
 
-users = {}
 
-usercookies = []
+def serUserCooke(email,pwd):
+    tmpcookie = hashlib.md5(email + pwd).hexdigest()
+    usercookies[tmpcookie] = True
+    return tmpcookie
 
 allUserData = {}
 #服务器初始化用户数据
@@ -68,6 +95,8 @@ def initAllUserData():
     lines = f.readlines()
     f.close()
     for l in lines:
+        if len(l) < 20:
+            continue
         tmpl = l.replace('\n','')
         dats = tmpl.split(',')
         allUserData[dats[0]] = {}
@@ -80,25 +109,12 @@ def initAllUserData():
         allUserData[dats[0]]['ip'] = dats[5]
         allUserData[dats[0]]['date'] = dats[6]
         allUserData[dats[0]]['buy'] = int(dats[7])
+        serUserCooke(dats[0], dats[1])
+
 
 
 initAllUserData()
 
-def updateUser():
-    global configdic
-    global users
-    global usercookies
-    f = open('./config.txt','r')
-    jstr = f.read()
-    f.close()
-    configdic = json.loads(jstr)
-    users = configdic['user']
-    usercookies = []
-    for k in users:
-        tmpcookie = hashlib.md5(k + users[k]).hexdigest()
-        usercookies.append(tmpcookie)
-
-updateUser()
 
 #获取cookie过期时间
 def getNewCookieExpTime():
@@ -106,17 +122,123 @@ def getNewCookieExpTime():
     return expiration
 
 
+userdatas = []
+
 def createServerListHtml():
+    global userdatas
+    count,minxinguser,userdatas = serverstattool.getServerStat()
+    userqq = allUserData[minxinguser]['qq']
+    username = allUserData[minxinguser]['name']
+    outname = username + '(' + userqq + ')'
     f = open('html/slistframe.html','r')
     outhtml = f.read()
     f.close()
-    return outhtml
+
+    p1 = outhtml.find('$1')
+    p2 = outhtml.find('$2')
+    fronthtml = outhtml[:p1]
+    endhtml = outhtml[p2+2:]
+
+    mhtml = '''
+    <tr>
+        <td valign="middle" align="center" width="30" height="40" overflow="hidden" display="block" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
+            1
+        </td>
+        <td valign="middle" align="center" width="40" height="40" overflow="hidden" display="block" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
+            132871641
+        </td>
+        <td width="40" align="center" height="40" align="center" valign="middle" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
+            野醋栗
+        </td>
+        <td valign="middle" width="60" height="40" overflow="hidden" display="block" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
+            server1.woodcol.com
+        </td>
+        <td valign="middle" align="center" width="40" height="40" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
+            %s/200
+        </td>
+        <td valign="middle" align="center" width="50" height="40" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
+            %s
+        </td>
+        <td valign="middle" align="center" width="40" height="40" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
+            <form action='./userlist?serverid=1' id="userform" method='get'>
+            <input class="submit" type='submit' value='查看今日玩家战况' onclick="gotouser()"/>
+            </form>
+        </td>
+  </tr>
+
+    '''%(str(count),outname)
+
+    tochtml =  fronthtml + mhtml + endhtml
+
+    return tochtml
 
 def createUserListHtml():
     f = open('html/ulistframe.html','r')
     outhtml = f.read()
     f.close()
-    return outhtml
+
+    p1 = outhtml.find('$1')
+    p2 = outhtml.find('$2')
+    fronthtml = outhtml[:p1]
+    endhtml = outhtml[p2+2:]
+
+    mhtml = ''
+    userdatas.reverse()
+    for u in userdatas:
+        #[account,isB,tstr,age,fposion,playerstat,countplayer,parent]
+        userqq = allUserData[u[0]]['qq']
+        username = allUserData[u[0]]['name']
+        d1 = username + '(' + userqq + ')'
+        d2 = '出生'
+        if u[1] == 'D':
+            d2 = '死亡'
+        d3 = u[2].split('_')[1]
+        d4 = u[3]
+        d5 = u[4]
+        d6 = '出生'
+        if u[1] == 'D':
+            d6 = u[5]
+
+        d7 = ''
+        if u[7] != 'noParent':
+            userqq7 = allUserData[u[7]]['qq']
+            username7 = allUserData[u[7]]['name']
+            d7 = username7 + '(' + userqq7 + ')'
+        else:
+            d7 = '夏娃'
+        d8 = u[6]
+        mhtml += '''
+        <tr>
+        <td valign="middle" align="center" width="40" height="40" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
+            %s
+        </td>
+        <td valign="middle" align="center" width="30" height="40" overflow="hidden" display="block" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
+            %s
+        </td>
+        <td valign="middle" align="center" width="30" height="40" overflow="hidden" display="block" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
+            %s
+        </td>
+        <td width="30" align="center" height="40" align="center" valign="middle" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
+            %s
+        </td>
+        <td align="center" valign="middle" width="40" height="40" overflow="hidden" display="block" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
+            %s
+        </td>
+        <td valign="middle" align="center" width="40" height="40" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
+            %s
+        </td>
+        <td valign="middle" align="center" width="60" height="40" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
+            %s
+        </td>
+        <td valign="middle" align="center" width="60" height="40" style="word-break: break-all; word-wrap: 14; text-overflow: ellipsis; overflow-y: hidden; overflow-x: hidden; font-size: 14px;">
+            %s
+        </td>
+        
+  </tr>
+        '''%(d1,d2,d3,d4,d5,d6,d7,d8)
+
+    tochtml =  fronthtml + mhtml + endhtml
+    return tochtml
 
 #保存新用户帐号
 def saveNewUserData(email,pstr):
@@ -131,9 +253,10 @@ def saveNewUserData(email,pstr):
         pdatas = tmpstr.split(',')
         for k in allUserData.keys():
             if k == email:
-                outstr += pdatas[0] + ',' + pdatas[1] + ',' + pdatas[2] + ',' + pdatas[3] + ',' + pdatas[4] + ',' + pdatas[5]+ ',' + pdatas[6] + ',' + str(allUserData[k][buy])
+                outstr += pdatas[0] + ',' + pdatas[1] + ',' + pdatas[2] + ',' + pdatas[3] + ',' + pdatas[4] + ',' + pdatas[5]+ ',' + pdatas[6] + ',' + str(allUserData[k]['buy'])
+                serUserCooke(pdatas[0], pdatas[1])
             else:
-                outstr += k + ',' + allUserData[k]['pwd'] + ',' + allUserData[k]['name'] + ',' + allUserData[k]['qq'] + ',' + allUserData[k]['code'] + ',' + allUserData[k]['ip'] + ',' + allUserData[k]['date'] + ',' + str(allUserData[k][buy])
+                outstr += k + ',' + allUserData[k]['pwd'] + ',' + allUserData[k]['name'] + ',' + allUserData[k]['qq'] + ',' + allUserData[k]['code'] + ',' + allUserData[k]['ip'] + ',' + allUserData[k]['date'] + ',' + str(allUserData[k]['buy'])
             outstr += '\n'
         f = open('db/user.txt','w')
         f.write(outstr)
@@ -143,7 +266,8 @@ def saveNewUserData(email,pstr):
         f = open('db/user.txt','a+')
         f.write(pstr)
         f.close()
-        datas = pstr.split(',')
+        tmpstr = pstr.replace('\n','')
+        dats = tmpstr.split(',')
         allUserData[dats[0]] = {}
         allUserData[dats[0]]['email'] = dats[0]
         allUserData[dats[0]]['pwd'] = dats[1]
@@ -153,17 +277,34 @@ def saveNewUserData(email,pstr):
         allUserData[dats[0]]['ip'] = dats[5]
         allUserData[dats[0]]['date'] = dats[6]
         allUserData[dats[0]]['buy'] = int(dats[7])
+        serUserCooke(dats[0], dats[1])
+
+def saveNewActionCode(pcode):
+    f = open('db/actioncode.txt','a+')
+    f.write(pcode + '\n')
+    f.close()
 
 #验证邀请码是否存在，或者是否已被使用
 def checkCode(code):
-    f = open('db/newcode.txt','r')
+    newcodepth = 'db/newcode.txt'
+    f = open(newcodepth,'r')
     lines = f.readlines()
     f.close()
+
+    isHeave = False
+    outstr = ''
     for l in lines:
         tmpl = l.replace('\n','')
         if tmpl == code:
-            return True
-    return False
+            isHeave = True
+            saveNewActionCode(code)
+        else:
+            outstr += l
+    if isHeave:
+        f = open(newcodepth,'w')
+        f.write(outstr)
+        f.close()
+    return isHeave
 
 #查看用户帐号和密码是否正确，用以登陆网页
 def checkUserLogin(email,pwd):
@@ -174,6 +315,10 @@ def checkUserLogin(email,pwd):
 
 def getUserPwd(email):
     return allUserData[email]['pwd']
+
+def getServerUserListHtml(serverid):
+    pass
+
 
 class myHandler(BaseHTTPRequestHandler):
     
@@ -199,47 +344,59 @@ class myHandler(BaseHTTPRequestHandler):
         else:
             self.sendTxtMsg("INVALID")
 
-    def regGame(self.cdataobj):
-        pcode = cdataobj['cod']
-        pcode = rsadecodetool.decryptWithGhostPriKey(pcode)
-
+    def regGame(self,cdataobj):
+        pcode = urllib.unquote(cdataobj['cod'])
+        pcode = rsatool.decryptWithGhostPriKey(pcode)
         if checkCode(pcode):
-            pemail = cdataobj['email']
+            pemail = urllib.unquote(cdataobj['mail'])
             pemail = rsatool.decryptWithGhostPriKey(pemail)
-            ppwd = cdataobj['pwd']
-            ppwd = rsadecodetool.decryptWithGhostPriKey(ppwd)
+            ppwd = urllib.unquote(cdataobj['pwd'])
+            ppwd = rsatool.decryptWithGhostPriKey(ppwd)
             
-            pname = cdataobj['name']
+            pname = cdataobj['usename']
             pqq = cdataobj['qq']
 
             print(pemail,ppwd,pcode,pname)
             #email@test.com,gametest77889900,name,qq,yaoqingcode,注册ip地址,注册日期
             outstr = pemail + ',' + ppwd + ',' + pname + ',' + pqq + ',' + pcode + ',' + self.client_address[0] + ',' +time.strftime("%Y-%m-%d_%H:%M:%S", time.localtime()) + ',' + '1\n'
-            saveNewUserData(outstr)
-            self.sendHtmlStr('注册成功，游戏客户端在群共享中，请从QQ群中下载。')
+            saveNewUserData(pemail,outstr)
+            self.sendHtmlStr('注册成功，游戏客户端在群共享中，请从QQ群(%s)中下载。'%(configdic['qun']))
         else:
             self.sendHtmlStr('输入的邀请码错误，请确认你输入了正确的邀请码.')
 
+    def saveUserLoginData(self,email):
+        userlogindir = 'db/userlogin/'
+        tpth = userlogindir + email + '.txt'
+        savestr = self.client_address[0] + ',' +time.strftime("%Y-%m-%d_%H:%M:%S", time.localtime()) + '\n'
+        f = open(tpth,'a+')
+        f.write(savestr)
+        f.close()
+
     def userLogin(self,cdataobj):
-        pemail = cdataobj['email']
-        pemail = rsadecodetool.decryptWithGhostPriKey(pemail)
-        ppwd = cdataobj['pwd']
-        ppwd = rsadecodetool.decryptWithGhostPriKey(ppwd)
+        pemail = urllib.unquote(cdataobj['mail'])
+        print(pemail)
+        pemail = rsatool.decryptWithGhostPriKey(pemail)
+        print('---')
+        print(pemail)
+        ppwd = urllib.unquote(cdataobj['pwd'])
+        ppwd = rsatool.decryptWithGhostPriKey(ppwd)
         print(pemail,ppwd)
         if checkUserLogin(pemail, ppwd):
-            f = open('html/list.html','r')
-            self.sendHtml(f.read())
-            f.close()
+            self.saveUserLoginData(pemail)
+            htmlpth = 'html/list.html'
+            sessionstr = serUserCooke(pemail, ppwd)
+            cookiestr = "sessionID=%s"%(sessionstr)
+            self.sendHtml(htmlpth,cookiestr)
         else:
             self.sendHtmlStr('登陆失败，用户名或者密码错误.')
 
     def checkCookie(self,cookiestr):
+        print(cookiestr)
         if cookiestr:
-            updateUser()
             cs = cookiestr.split(';')
             for c in cs:
                 tmpss = c.split('=')[1]
-                if tmpss in usercookies:
+                if tmpss in usercookies and usercookies[tmpss]:
                     return True
         return False
     def do_GET(self):  
@@ -254,6 +411,18 @@ class myHandler(BaseHTTPRequestHandler):
                 self.path="/index.html"  
         try:  
             #根据请求的文件扩展名，设置正确的mime类型  
+            print(self.path[1:9])
+            if self.path[-1] == '?':
+                self.path = self.path[:-1]
+            elif self.path.find('?') != -1:
+                # ./userlist?serverid=1
+                tmps = self.path.split('?')[1]
+                serverid = tmps.split('=')[1]
+                if serverid == '1':
+                    self.path = "/user.html"
+                else:
+                    self.path = "/user.html"
+
             if self.path.endswith(".html"):  
                 if self.checkCookie(cookiestr):
                     if self.path[-15:] == 'slistframe.html':
@@ -265,6 +434,10 @@ class myHandler(BaseHTTPRequestHandler):
                     else:
                         fpth = curdir + os.sep + 'html' + os.sep + self.path
                         self.sendHtml(fpth)
+                elif self.path[1:9] == 'reg.html':
+                    print('reg.html run')
+                    fpth = curdir + os.sep + 'html' + os.sep + 'reg.html'
+                    self.sendHtml(fpth)
                 else:
                     fpth = curdir + os.sep + 'html' + os.sep + 'index.html'
                     self.sendHtml(fpth)
@@ -289,7 +462,7 @@ class myHandler(BaseHTTPRequestHandler):
             self.send_error(404,'File Not Found: %s' % self.path)  
 
     def sendHtmlStr(self,htmlstr):
-        mimetype='text/html'  
+        mimetype='text/html;charset=UTF-8'  
         self.send_response(200)  
         self.send_header('Content-type',mimetype)  
         self.end_headers()
@@ -341,9 +514,9 @@ class myHandler(BaseHTTPRequestHandler):
             length = self.headers.getheader('content-length');
             nbytes = int(length)
             data = self.rfile.read(nbytes)
+            print(data)
             msgobj = self.decodePostData(data)
             if reqtype == 'ooreg':  
-                updateUser()
                 self.regGame(msgobj)
             elif reqtype == 'login':
                 self.userLogin(msgobj)
@@ -607,13 +780,6 @@ def startServer():
     thr.setDaemon(True)
     thr.start()
 
-
-def getUpdateConfigTime():
-    updateUser()
-    try:
-        return configdic['updatetime']
-    except Exception as e:
-        return None
     
 
 if __name__ == '__main__':
@@ -623,15 +789,9 @@ if __name__ == '__main__':
     # server.socket = ssl.wrap_socket (server.socket, certfile='server.pem', server_side=True)
     # server.serve_forever()
 
-    ptime = getUpdateConfigTime()
-    if not ptime:
-        ptime = 60  #如果未设置更新间隔时间，更新时间为每分钟更新一个商品
-    tool = BS4HTMLTool.BS4HTMLTool(ptime)
-    delaytime = tool.upTime
     startServer()
     while True:
-        tool.updateOneItemWithTime()
-        time.sleep(delaytime)
+        time.sleep(600)
 
 
 # # 生成rsa密钥

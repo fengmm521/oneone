@@ -5,6 +5,7 @@
         <title>注册</title>
         <style type='text/css'>
         #login {width:500px;margin:0 auto;}
+        #regist {width:500px;margin:0 auto;}
         .must {color:red;}
         .word {text-align:right;margin-right:30px;}
         #utip,#ptip,#rtip,#mtip,#rmtip,#ctip,#qtip {color:red;font-size:10px;}
@@ -147,9 +148,10 @@
         function doreg(){
             if (check())
             {
-                var publickey = "-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDAOWvcoFpiz1pOqrO0RdUHZz+v\nxUS5sNdRnNmlRCl8dZradT0l4Pz2zgMtglPV/nAxp8uSZz3WbXCvVrdF4EXLsDWI\nAGJIcz+wg4aEOUNHRTeNWyh7LwVHhGt9sEHDle//3WNOgptrxDc01Wt9VAz4q7ZX\n10EyJzS3PGCwJzDQ2QIDAQAB\n-----END PUBLIC KEY-----";
+
                 var encrypt = new JSEncrypt();
-                encrypt.setPublicKey(publickey);
+                encrypt.setPublicKey($('#pubkey').val());
+
                 var mail=document.getElementById('mail').value;
                 var enemail = encrypt.encrypt(mail);
 
@@ -163,15 +165,35 @@
                 document.getElementById('pwd').value = enpwd;
                 document.getElementById('cod').value = encod;
                 regForm.submit();
+                document.getElementById('mail').value =mail;
+                document.getElementById('cod').value = cod;
+                document.getElementById('pwd').value = pwd;
+
             }
+        }
+        function cleaninput(){
+            // var url = document.getElementById('url').value;
+                document.getElementById('mail').value = "";
+                document.getElementById('pwd').value = "";
+                document.getElementById('cod').value = "";
+        }
+        window.onload = function(){
+        
+            cleaninput() 
         }
         </script>
 </head>
 <body>
         <div id="header">
-        <h1>自建One Hour One Life服务器</h1>
+        <h1>One Hour One Life超极版</h1>
         <h3>--qq群:132871641</h3>
         </div>
+        <textarea id="pubkey" rows="15" cols="65" style="display:none">-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDAOWvcoFpiz1pOqrO0RdUHZz+v
+xUS5sNdRnNmlRCl8dZradT0l4Pz2zgMtglPV/nAxp8uSZz3WbXCvVrdF4EXLsDWI
+AGJIcz+wg4aEOUNHRTeNWyh7LwVHhGt9sEHDle//3WNOgptrxDc01Wt9VAz4q7ZX
+10EyJzS3PGCwJzDQ2QIDAQAB
+-----END PUBLIC KEY-----</textarea>
         <p> </p>
         <div id='login'>
                 <form action='./ooreg' id="regForm" method='post'>
@@ -188,7 +210,7 @@
                         </tr>
                         <tr>
                                 <td><span class='must'>*</span>重复邮箱：</span></td>
-                                <td><input type='text' name='rmail' id='rmail' onblur='verrmail()' /></td>
+                                <td><input type='text' id='rmail' onblur='verrmail()' /></td>
                                 <td style='width:80px;'><span id='rmtip'></span></td>
                         </tr>
                         <tr>
@@ -198,7 +220,7 @@
                         </tr>
                         <tr>
                                 <td><span class='must'>*</span>重复密码：</span></td>
-                                <td><input type='password' name='repwd' id='repwd' onblur='verrepwd()' /></td>
+                                <td><input type='password' id='repwd' onblur='verrepwd()' /></td>
                                 <td style='width:80px;'><span id='rtip'></span></td>
                         </tr>
                         <tr>
@@ -214,16 +236,41 @@
                         <tr>
                                 <td colspan='3' style='text-align:center;'><input class="submit" type='submit' value='注册' onclick="doreg()"/></td>
                         </tr>
+                        
+                </table>
+                </form>
+                
+        </div>
+        <div id='regist'>
+                <form action='./index.html' onsubmit="" method='get'>
+                <table align="center">           
+                        <tr>
+                                <td colspan='3' style='text-align:center;'><p></p></td>
+                        </tr>
+                        <tr>
+                                <td colspan='3' style='text-align:center;'>已有帐号，请登陆</td>
+                        </tr>
+                        <tr>
+                                <td colspan='3' style='text-align:center;'><p></p></td>
+                        </tr>     
+                        <tr>
+                            <td colspan='1' style='text-align:center;'><input type='submit' value='登陆' /></td>
+                        </tr>
                 </table>
                 </form>
                 说明:
-                <p>所填qq号请使用与你游戏群中相同的qq号,方便大家在群里交流。</p>
-                <p>没有邀请码可使用支付宝或微信扫下方二维码购买。购买时联系方式请填写你的qq号或者邮箱。</p>
+                <p>所填qq号请使用与你游戏群中相同的qq号,方便大家在群里交流。游戏客户端在QQ群(132871641)文件共享中。</p>
+                <p></p>
+                <p>没有邀请码且没有免费资格的同学,可使用支付宝或微信扫下方二维码购买。购买时联系方式请填写你的qq号或者注册邮箱。</p>
                 <img src="./../img/image.png" width="100" height="100" border="0" style=" vertical-align:middle;"/>
-                <p style="color:#FF8F00;"> 购买自建服务器邀请码的5%资金将会用来支持官方开发者! </p>
+                <p></p>
+                <p></p>
+                <p style="color:#00efff;font-size: 20" > <a href="https://kazetsukai.github.io/onetech/#" target="blank">物品合成表:https://kazetsukai.github.io/onetech/</a></p>
 
-                <p style="color:#00efff;" > <a href="http://onehouronelife.com" target="blank">如果你有购买能力可同时支持官方开发者,感谢Jason Rohrer为我们带来这么好玩的游戏，点击下图片可访问one hour one life官方网站</a></p>
-                <p align="center"><a href="http://onehouronelife.com" target="blank"><img src="./../img/onelife.jpg" width="200" height="110" border="0" style=" vertical-align:middle;"/></a></p>
+                <p style="color:#00efff;" > <a href="http://onehouronelife.com" target="blank">one hour one life官方网站:http://onehouronelife.com</a></p>
+                <p align="left"><a href="http://onehouronelife.com" target="blank"><img src="./../img/onelife.jpg" width="200" height="110" border="0" style=" vertical-align:middle;"/></a></p>
+                
+                
         </div>
         
 </body>
