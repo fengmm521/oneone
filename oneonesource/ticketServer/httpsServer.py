@@ -348,6 +348,7 @@ class myHandler(BaseHTTPRequestHandler):
         paction = logindat['action']                    #check_ticket_hash
         if paction != 'check_ticket_hash':
             print('paction=%s'%(paction))
+            self.sendEmptyMsg()
             return
         sk = getUserPwd(pemail)
         tmphash = hmactool.get_authorization(sk, pstringToHash)
@@ -421,57 +422,67 @@ class myHandler(BaseHTTPRequestHandler):
                 self.path="/list.html"
             else:
                 self.path="/index.html"  
-        try:  
-            #根据请求的文件扩展名，设置正确的mime类型  
-            print(self.path[1:9])
-            if self.path[-1] == '?':
-                self.path = self.path[:-1]
-            elif self.path.find('?') != -1:
-                # ./userlist?serverid=1
-                tmps = self.path.split('?')[1]
-                serverid = tmps.split('=')[1]
-                if serverid == '1':
-                    self.path = "/user.html"
-                else:
-                    self.path = "/user.html"
-
-            if self.path.endswith(".html"):  
-                if self.checkCookie(cookiestr):
-                    if self.path[-15:] == 'slistframe.html':
-                        htmlstr = createServerListHtml()
-                        self.sendHtmlStr(htmlstr)
-                    elif self.path[-15:] == 'ulistframe.html':
-                        htmlstr = createUserListHtml()
-                        self.sendHtmlStr(htmlstr)
+        elif self.path[1:13] == "ticketserver": 
+            #http://sell1.woodcol.com:8902/ticketserver?action=check_ticket_hash&email=test%40test.com&hash_value=1cd5e064500c686a76d923b646437e06f693eaef&string_to_hash=2
+            tcikobj = self.path.split('?')[1]
+            tmpobj = tcikobj.split('&')
+            outdic = {}
+            for d in tmpobj:
+                tmpx = d.split('=')
+                outdic[tmpx[0]] = tmpx[1]
+            self.chickTicket(outdic)
+        else:
+            try:  
+                #根据请求的文件扩展名，设置正确的mime类型  
+                print(self.path[1:9])
+                if self.path[-1] == '?':
+                    self.path = self.path[:-1]
+                elif self.path.find('?') != -1:
+                    # ./userlist?serverid=1
+                    tmps = self.path.split('?')[1]
+                    serverid = tmps.split('=')[1]
+                    if serverid == '1':
+                        self.path = "/user.html"
                     else:
-                        fpth = curdir + os.sep + 'html' + os.sep + self.path
+                        self.path = "/user.html"
+
+                if self.path.endswith(".html"):  
+                    if self.checkCookie(cookiestr):
+                        if self.path[-15:] == 'slistframe.html':
+                            htmlstr = createServerListHtml()
+                            self.sendHtmlStr(htmlstr)
+                        elif self.path[-15:] == 'ulistframe.html':
+                            htmlstr = createUserListHtml()
+                            self.sendHtmlStr(htmlstr)
+                        else:
+                            fpth = curdir + os.sep + 'html' + os.sep + self.path
+                            self.sendHtml(fpth)
+                    elif self.path[1:9] == 'reg.html':
+                        print('reg.html run')
+                        fpth = curdir + os.sep + 'html' + os.sep + 'reg.html'
                         self.sendHtml(fpth)
-                elif self.path[1:9] == 'reg.html':
-                    print('reg.html run')
-                    fpth = curdir + os.sep + 'html' + os.sep + 'reg.html'
-                    self.sendHtml(fpth)
+                    else:
+                        fpth = curdir + os.sep + 'html' + os.sep + 'index.html'
+                        self.sendHtml(fpth)
+                    return
+                elif self.path[1:4] == 'img':
+                    fpth = curdir + self.path
+                    self.sendImage(fpth)
+                elif self.path[1:4] == 'bin':
+                    fpth = curdir + self.path
+                    self.sendJsFile(fpth)
+                elif self.path[1:6] == 'login':#客户端登录
+                    print('login--->',self.path)
+                    return 'login'
+                elif self.path[1:6] == 'ooreg': #用户注册
+                    print('ooreg---->',self.path)
+                    return 'ooreg'
                 else:
-                    fpth = curdir + os.sep + 'html' + os.sep + 'index.html'
-                    self.sendHtml(fpth)
-                return
-            elif self.path[1:4] == 'img':
-                fpth = curdir + self.path
-                self.sendImage(fpth)
-            elif self.path[1:4] == 'bin':
-                fpth = curdir + self.path
-                self.sendJsFile(fpth)
-            elif self.path[1:6] == 'login':#客户端登录
-                print('login--->',self.path)
-                return 'login'
-            elif self.path[1:6] == 'ooreg': #用户注册
-                print('ooreg---->',self.path)
-                return 'ooreg'
-            else:
-                time.sleep(3)
-                self.sendEmptyMsg()
-            return  
-        except IOError:  
-            self.send_error(404,'File Not Found: %s' % self.path)  
+                    time.sleep(3)
+                    self.sendEmptyMsg()
+                return  
+            except IOError:  
+                self.send_error(404,'File Not Found: %s' % self.path)  
 
     def sendHtmlStr(self,htmlstr):
         mimetype='text/html;charset=UTF-8'  
