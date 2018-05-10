@@ -122,10 +122,8 @@ def getNewCookieExpTime():
     return expiration
 
 
-userdatas = []
 
 def createServerListHtml():
-    global userdatas
     count,minxinguser,userdatas = serverstattool.getServerStat()
     try:
         userqq = allUserData[minxinguser]['qq']
@@ -177,6 +175,7 @@ def createServerListHtml():
     return tochtml
 
 def createUserListHtml():
+    count,minxinguser,userdatas = serverstattool.getServerStat()
     f = open('html/ulistframe.html','r')
     outhtml = f.read()
     f.close()
