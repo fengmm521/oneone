@@ -1,0 +1,21 @@
+在对地图编辑器和mac版服务器进行编译时会报两个错误，解决办法如下:
+地图编辑器编译时的错误
+1.OneLife/gameSource/EditorImportPage.cpp代码版本v89中第1173行double *与int比较大小错误
+    将
+    if( mOverlayScale.getLastElement() < 0 ) {
+        *( mOverlayScale.getLastElement() ) = 0;
+        }
+    }
+    改为
+    if( mOverlayScale.getLastElement() < (void*)0 ) {
+        *( mOverlayScale.getLastElement() ) = 0;
+        }
+    }
+    即对0进行指针类型转换
+server编译时的错误
+2.OneLife/server/map.cpp代码版本v89中第60行#include <values.h>找不到values.h文件的错误
+将values.h头文件名注释掉，掉成另外两个头文件，
+    // #include <values.h>
+    #include <limits.h>
+    #include <float.h>
+    即换成limits.h和float.h,参考：http://www.compbio.dundee.ac.uk/pipermail/discuss/2006-January/000025.html
