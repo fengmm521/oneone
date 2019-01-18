@@ -1,3 +1,37 @@
+windows下编译使用的是MinGW来进行编译，编译流程
+
+一、服务器编译
+1.使用pullAndBuildLatest下载源码，或者从github上(https://github.com/jasonrohrer)下载源码，需要下载三部分代码
+    OneLife对应的tags版本,OneLifeData7对应的release版本，和minorGems的release对应版本，三个程序版本需要对应
+2.下载好之后cd到OneLife/server
+3.输入./configure会让选择对应的操作系统，选好之后make就好，编译完成后，服务器运行需要OneLifeData7下的个目录,objects,transitions,categories用ln软链接到server所在目录就好
+4.如果这时缺少对应的第三方库，需要使用MinGW的库安装工具来进行安装
+    安装的库有:SDL库，ImageMagick库
+参考说明:http://onehouronelife.com/forums/viewtopic.php?id=423
+
+二、windows下客户端编译
+1.cd到OneLife,输入./configure之后选择对应的操作系统生成MakeFile文件
+2.cd到gameSource然后输入make可开始编辑客户端
+3.等编译客户端完成后，将settings/useCustomServer.ini设置为1即游戏使用用户定义的服务器运行
+
+三、windows下地图编译器编译
+1.在第二部2中不是运行make而是运行 sh ./makeEditor.sh即可编译好地图编辑器
+
+最后将客户端需要的数据资源文件复制到客户端下或者使用软件链接连接到客户端目录下
+ln -s ../../OneLifeData7/animations .
+ln -s ../../OneLifeData7/categories .
+ln -s ../../OneLifeData7/ground .
+ln -s ../../OneLifeData7/music .
+ln -s ../../OneLifeData7/objects .
+ln -s ../../OneLifeData7/overlays .
+ln -s ../../OneLifeData7/scenes .
+ln -s ../../OneLifeData7/sounds .
+ln -s ../../OneLifeData7/sprites .
+ln -s ../../OneLifeData7/transitions .
+
+
+四、windows系统下的汉化问题总结
+
 windows下的配置文件都为unicode编码。
 
 在完整汉化补丁下的zlib1.dll不能使用,要试着下载另外的，opengl32.dll也不能使用。别的文件直接替换就好。
