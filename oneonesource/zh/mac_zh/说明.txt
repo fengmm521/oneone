@@ -6,7 +6,13 @@ mac版在编译时注意引入的库,可能要修改
 OneLife/gameSource目录下的makefile文件，加上libjpeg.a,libpng.a,libz.a
 
 并且在第24行中加入freetype库的引用说明"-lfreetype"。后边加入三个的正确路径
-PLATFORM_LINK_FLAGS = -framework OpenGL -lfreetype -framework  SDL -framework Cocoa ../../minorGems/game/platforms/SDL/mac/SDLMain.m ${CUSTOM_MACOSX_LINK_FLAGS}
+
+mac客户端汉化版编译的makefile文件修改
+LDFLAGS = "-I/Users/mage/Documents/github/oneone/oneonesource/zh/mac_zh/frameworks" "-I/Users/mage/Documents/github/oneone/oneonesource/zh/mac_zh/frameworks/freetype"
+
+
+PLATFORM_LINK_FLAGS = -framework OpenGL -lfreetype -I/Users/mage/Documents/github/oneone/oneonesource/zh/mac_zh/frameworks/SDL2.framework/Headers -F/Users/mage/Documents/github/oneone/oneonesource/zh/mac_zh/frameworks -framework  SDL -framework Cocoa ../../minorGems/game/platforms/SDL/mac/SDLMain.m ${CUSTOM_MACOSX_LINK_FLAGS}
+
 
 # for headless builds with no GL or SDL
 PLATFORM_LINK_FLAGS_HEADLESS = ${CUSTOM_MACOSX_LINK_FLAGS}
@@ -14,11 +20,15 @@ PLATFORM_LINK_FLAGS_HEADLESS = ${CUSTOM_MACOSX_LINK_FLAGS}
 
 
 # not used for some builds
-PLATFORM_LIBJPEG_FLAG = /Users/mage/Documents/github/oneone/oneonesource/zh/mac_zh/frameworks/libjpeg.a
+PLATFORM_LIBJPEG_FLAG = /Users/mage/Documents/github/oneone/oneonesource/zh/mac_zh/frameworks/libjpeg.a -L/Users/mage/Documents/github/oneone/oneonesource/zh/mac_zh/frameworks/libfreetype.a
 
 # not used for some builds
 PLATFORM_LIBPNG_FLAG = /Users/mage/Documents/github/oneone/oneonesource/zh/mac_zh/frameworks/libz.a /Users/mage/Documents/github/oneone/oneonesource/zh/mac_zh/frameworks/libpng.a
 
+修改上边内容后，在makefile中搜索
+PROFILE_OFF_FLAG =
+在这里加入上边新定义的编译头文件路径,修改后如下
+PROFILE_OFF_FLAG = ${LDFLAGS}
 
 代码修改
 1.minorGems/game/Font.h中加入下边三个渲染的头文件，在使用时请将freetype的库放入xcode的库目录中,路径为:
@@ -32,3 +42,17 @@ PLATFORM_LIBPNG_FLAG = /Users/mage/Documents/github/oneone/oneonesource/zh/mac_z
 
 3.同windows版本一样，修改了OneLife/gameSource/LivingLifePage.cpp中的61行，将数值改小为0.15
 static float pencilErasedFontExtraFade = 0.15;
+
+
+4.服务器编译时map.cpp缺少value.h文件报错问题
+  因为新mac os中移除了value.h文件，而使用limits.h文件替换，在server/map.cpp的112行把#include <values.h>注释掉，替换为#include <limits.h>即可
+
+
+mac os下的代码编译：
+1.把代码中需要替换的内容替换,注意，OneLife/gameSource/LivingLifePage.cpp文件已经不能直接替换了，这个文件只要改一行即可
+    static float pencilErasedFontExtraFade = 0.75;
+    改为
+    static float pencilErasedFontExtraFade = 0.15;
+2.客户端编译时，先cd到OneLife目录运行./configure,选择mac系统，把上边说的gameSource目录下的makefile文件用上边的内容替换，然后cd到gameSource目录下运行make编译生成OneLife可执行文件
+    客户端编译完成后，一定要记得把font.ttf的字体放到游戏目录下，要不然游戏无法运行
+3.编译mac下的服务器端， 把上边代码修改的第4部分中的map.cpp文件替换后，cd到server目录下执行./configure后，选择mac系统，再运行make生成srever可执行程序文件
