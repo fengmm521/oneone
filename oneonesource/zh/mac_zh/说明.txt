@@ -58,3 +58,5 @@ mac os下的代码编译：
 3.编译mac下的服务器端， 把上边代码修改的第4部分中的map.cpp文件替换后，cd到server目录下执行./configure后，选择mac系统，再运行make生成srever可执行程序文件
 
 4.翻译后汉化了objets后，要把objets下的fcz缓存文件删掉重新运行游戏后有汉化
+
+汉化对象说明文件json格式地址：http://guide.onehouronelife.cn/static/objects.json
