@@ -1,4 +1,7 @@
 windows下编译使用的是MinGW来进行编译，编译流程
+使用MinGW编译客户端时需要使用MinGWInstaller安装几个相关库,可参考:
+http://onehouronelife.com/forums/viewtopic.php?id=423
+
 
 一、服务器编译
 1.使用pullAndBuildLatest下载源码，或者从github上(https://github.com/jasonrohrer)下载源码，需要下载三部分代码
@@ -13,6 +16,9 @@ windows下编译使用的是MinGW来进行编译，编译流程
 1.cd到OneLife,输入./configure之后选择对应的操作系统生成MakeFile文件
 2.cd到gameSource然后输入make可开始编辑客户端
 3.等编译客户端完成后，将settings/useCustomServer.ini设置为1即游戏使用用户定义的服务器运行
+
+注意问题，windows下编译时有图片转换问题，windows下MinGW的ImageMagick中的convert图片转换工具不支持-type truecolormatte命令，在编译时会出错，可以通过修改makeFile文件删除图片转换命令来解决问题，图片的转换可以在mac或者linux下使用ImageMagick工具完成
+
 
 三、windows下地图编译器编译
 1.在第二部2中不是运行make而是运行 sh ./makeEditor.sh即可编译好地图编辑器
