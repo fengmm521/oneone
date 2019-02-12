@@ -1,0 +1,31 @@
+感谢使用本店汉化的这个游戏
+
+本游戏由Mage汉化，如果你转发本汉化游戏时，请不要删除本文件以表示对本店的支持，你的支持会让本店主更有动力更新本游戏
+
+获取本游戏的汉化版或者游戏最新更新的地址:
+https://item.taobao.com/item.htm?id=568646342264
+如果是从本店购买的汉化游戏，可以直接咨询店主游戏相关问题
+
+当前游戏客户端和服务器程序版本v198，游戏中物品数据版本为v197
+
+使用说明:
+server_mac.zip：
+游戏Mac OS苹果系统服务器端程序，解压双击运行startServer即可运行游戏服务器
+
+OneLife_v198_maczh.zip:
+游戏Mac OS苹果系统客户端压缩包,解压后设置好settings/customServerAddress.ini中的游戏服务器地址
+游戏服务器默认使用端品8005，客户端设置端口号在settings/useCustomServer.ini设置
+注意客户端要登陆游戏，需要先启动游戏服务器，并在客户端中设置好服务器地址，客户端默认服务器址为127.0.01的本地地址
+
+EditOneLife_mac.zip
+游戏Mac OS苹果系统地图编辑器程序，当要使用地图编辑器时，把这个压缩包下的EditOneLife.app复制到游戏客户端目录下运行EditOneLife.app即可打开游戏地图辑器
+
+
+如果有能力资金比较充足请购买以支持官方版本，以感谢官方为我们提供这么好玩的开源游戏：
+游戏官网:http://onehouronelife.com
+
+本游戏中文版物品合成指南：
+http://guide.onehouronelife.cn
+
+本游戏英文版物品合成指南:
+https://onetech.info/
