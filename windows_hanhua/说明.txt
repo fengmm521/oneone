@@ -1,0 +1,6 @@
+windows下的汉化程序使用方法:
+
+1.先在mac下汉化，得到汉化后的utf8编码的objects文件
+2.把mac下的objects文件夹复制到当前目录下，并命名为objects_utf8,如果当前目录下没有objects目录，在当前目录下建一个
+3.再在windows下运行hanhua_win_zh.py程序，将会得到ansi的汉化objects文件夹，
+4.复制objects目录到OneLife的客户端目录下并覆盖

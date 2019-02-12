@@ -17,7 +17,10 @@ http://onehouronelife.com/forums/viewtopic.php?id=423
 2.cd到gameSource然后输入make可开始编辑客户端
 3.等编译客户端完成后，将settings/useCustomServer.ini设置为1即游戏使用用户定义的服务器运行
 
-注意问题，windows下编译时有图片转换问题，windows下MinGW的ImageMagick中的convert图片转换工具不支持-type truecolormatte命令，在编译时会出错，可能是因为windows下没有正确安装ImageMagick,可以通过修改makeFile文件删除图片转换命令来解决问题，图片的转换可以在mac或者linux下使用ImageMagick工具完成
+注意问题，
+1.windows下编译时有图片转换问题，
+    windows下MinGW的ImageMagick中的convert图片转换工具不支持-type truecolormatte命令，在编译时会出错，可能是因为windows下没有正确安装ImageMagick,可以通过修改makeFile文件删除图片转换命令来解决问题，图片的转换可以在mac或者linux下使用ImageMagick工具完成
+2.汉化使用的freetype版本是2.8.1，使用前选从源码编译好freetype的库然后复制到MinGW的Lib目录和include目录下,然在makeFile中添加-lfreetype的库链接引用
 
 
 三、windows下地图编译器编译
@@ -44,8 +47,12 @@ windows下的配置文件都为unicode编码。
 
 onelife中文修复代码.zip中保存的是windows下需要修改的三个文件。分别是
 
-OneLife/gameSource/LivingLifePage.cpp 第61行，数值改小，为了防止显示的文字重叠在一起。
+1.OneLife/gameSource/LivingLifePage.cpp 第61行，数值改小，为了防止显示的文字重叠在一起。
+    static float pencilErasedFontExtraFade = 0.75;
+    改为
+    static float pencilErasedFontExtraFade = 0.2;  //mac下是改成0.15
 
+2.字体渲染相关
 minorGems/game/Fone.h.  增加了四个头文件
         #include <GL/gl.h>
         #include <GL/glu.h>

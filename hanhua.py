@@ -116,15 +116,27 @@ def changeTxtForMacOS(vpth,opth,idstr,zhstr):
     f.write(savestr)
     f.close()
 
+def changeTxtForWindows(vpth,opth,idstr,zhstr):
+    macospth = vpth + os.sep +'hanhua' + os.sep + 'windows' + os.sep + 'objects' + os.sep + idstr + '.txt'
+    f = codecs.open(opth,'r','utf8')
+    lines = f.readlines()
+    f.close()
+    lines[1] = zhstr + '\n'
+    savestr = ''.join(lines)
+    f = codecs.open(macospth,'w','utf_8_sig')
+    f.write(savestr)
+    f.close()
+
 def main(vpth):
     objs = hanhuaObjs(vpth)
     txtpth,objspth = getAllObjPth(vpth)
-    print(txtpth[0])
+    # print(txtpth[0])
     for i,v in enumerate(txtpth):
         if objs.has_key(v[2]):
             opth = objspth + v[0]
+            print(opth)
             changeTxtForMacOS(vpth,opth,v[2],objs[v[2]])
-
+            # changeTxtForWindows(vpth,opth,v[2],objs[v[2]])
 
 #测试
 if __name__ == '__main__':
