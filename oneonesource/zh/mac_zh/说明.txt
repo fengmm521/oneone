@@ -55,8 +55,13 @@ mac os下的代码编译：
     static float pencilErasedFontExtraFade = 0.15;
 2.客户端编译时，先cd到OneLife目录运行./configure,选择mac系统，把上边说的gameSource目录下的makefile文件用上边的内容替换，然后cd到gameSource目录下运行make编译生成OneLife可执行文件
     客户端编译完成后，一定要记得把font.ttf的字体放到游戏目录下，要不然游戏无法运行
+
 3.编译mac下的服务器端， 把上边代码修改的第4部分中的map.cpp文件替换后，cd到server目录下执行./configure后，选择mac系统，再运行make生成srever可执行程序文件
 
 4.翻译后汉化了objets后，要把objets下的fcz缓存文件删掉重新运行游戏后有汉化
+
+5.客户端发布时的动态库引用路径问题:
+    要使用install_name_tool和otool工具对动态库路径修改，参考下边说明
+    https://www.jianshu.com/p/7f1b50b502d3
 
 汉化对象说明文件json格式地址：http://guide.onehouronelife.cn/static/objects.json
