@@ -159,7 +159,7 @@ def getJsonFileFromServer():
     print(len(jdic))
     if len(jdic) > 9:
         hjsonpth = cur_file_dir() + os.sep + 'oneonesource' + os.sep + 'zh/objects.json'
-        f = open(hjsonpth = cur_file_dir() + os.sep + 'oneonesource' + os.sep + 'zh/objects.json','w')
+        f = open(hjsonpth,'w')
         f.write(jstr)
         f.close()
     else:

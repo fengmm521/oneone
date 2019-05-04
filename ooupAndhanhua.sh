@@ -17,6 +17,9 @@ cd $basepath
 
 if [[ $3 ]]; then
     sh script/ooAll.sh $1 $2 $3
+    sh script/makeMacServer.sh $1
+    sh script/makeMacApp.sh $1
+    sh script/makeMacEditorApp.sh $1
 else
     echo "请输入onelife，oneLifeData7,minorGems的要更新到的版本号"
 fi
