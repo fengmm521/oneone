@@ -17,10 +17,9 @@ cd $basepath
 cd ..
 if [[ $1 ]]; then
     if [[ -d "v"${1} ]]; then
-      if [[ -d "v"${1}/release-mac ]]; then
-        rm -rf "v"${1}/release-mac
+      if [[ -d "v"${1}/release-mac/client ]]; then
+        rm -rf "v"${1}/release-mac/client
       fi
-      mkdir "v"${1}/release-mac
       mkdir "v"${1}/release-mac/client
       cp -r oneonesource/zh/mac_zh/OneLife_v198.app "v${1}/release-mac/client/OneLife_v${1}.app"
       cp -f "v${1}/OneLife/gameSource/OneLife" "v${1}/release-mac/client/OneLife_v${1}.app/Contents/MacOS/OneLife"

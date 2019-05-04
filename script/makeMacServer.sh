@@ -10,10 +10,10 @@ cd $basepath
 cd ..
 if [[ $1 ]]; then
     echo "开始生成mac服务器端:"
-    if [[ -d "v"${1}/release-mac/server ]]; then
-        rm -rf "v"${1}/release-mac/server
+    if [[ -d "v${1}/release-mac/server" ]]; then
+        rm -rf "v${1}/release-mac/server"
     fi
-    mkdir "v"${1}/release-mac/server
+    mkdir "v${1}/release-mac/server"
 
     #复制可执行二进制文件
     cp "v${1}/OneLife/server/OneLifeServer" "v${1}/release-mac/server/"

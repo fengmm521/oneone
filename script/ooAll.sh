@@ -45,6 +45,9 @@ if [[ $3 ]]; then
    cd "v"${1}/OneLife/gameSource
    make   #开始编译客户端
 
+   #编译地图编译器
+   sh ./makeEditor.sh
+
 else
     echo "请输入onelife，minorGems的要更新到的版本号"
 fi
