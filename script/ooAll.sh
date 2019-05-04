@@ -41,10 +41,9 @@ if [[ $3 ]]; then
    cd ..
 
    #修改makefile
-   python script/changeMageFile.py $1
-   
+   python script/changeMakeFile.py $1
    cd "v"${1}/OneLife/gameSource
-   make         #开始编译客户端
+   make   #开始编译客户端
 
 else
     echo "请输入onelife，minorGems的要更新到的版本号"

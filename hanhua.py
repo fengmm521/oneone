@@ -9,6 +9,10 @@ import os,sys
 import shutil
 import json
 import codecs
+import chardet
+import urllib2
+
+# http://guide.onehouronelife.cn/static/objects.json
 
 #获取脚本路径
 def cur_file_dir():
@@ -127,7 +131,41 @@ def changeTxtForWindows(vpth,opth,idstr,zhstr):
     f.write(savestr)
     f.close()
 
+def conventStrTOUtf8(oldstr):
+    try:
+        nstr = oldstr.encode("utf-8")
+        return nstr
+    except Exception as e:
+        print 'nstr do not encode utf-8'
+    cnstrtype = chardet.detect(oldstr)['encoding']
+    utf8str =  oldstr.decode(cnstrtype).encode('utf-8')
+    return utf8str
+
+def getUrl(purl):
+    try:
+        req = urllib2.Request(purl)
+        req.add_header('User-agent', 'Mozilla 5.10')
+        res = urllib2.urlopen(req)
+        html = conventStrTOUtf8(res.read())
+        return html
+    except Exception, e:
+        print e
+    return None
+
+def getJsonFileFromServer():
+    jsonurl = 'http://guide.onehouronelife.cn/static/objects.json'
+    jstr = getUrl(jsonurl)
+    jdic = json.loads(jstr)
+    print(len(jdic))
+    if len(jdic) > 9:
+        hjsonpth = cur_file_dir() + os.sep + 'oneonesource' + os.sep + 'zh/objects.json'
+        f = open(hjsonpth = cur_file_dir() + os.sep + 'oneonesource' + os.sep + 'zh/objects.json','w')
+        f.write(jstr)
+        f.close()
+    else:
+        print('get json objects erro')
 def main(vpth):
+    getJsonFileFromServer()
     objs = hanhuaObjs(vpth)
     txtpth,objspth = getAllObjPth(vpth)
     # print(txtpth[0])
@@ -137,8 +175,12 @@ def main(vpth):
             print(opth)
             changeTxtForMacOS(vpth,opth,v[2],objs[v[2]])
             # changeTxtForWindows(vpth,opth,v[2],objs[v[2]])
-
+def test():
+    getJsonFileFromServer()
 #测试
+
+# if __name__ == '__main__':
+#     test()
 if __name__ == '__main__':
     args = sys.argv
     fpth = ''
