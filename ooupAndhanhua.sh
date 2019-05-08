@@ -16,9 +16,10 @@ echo $CUR_PATH
 cd $basepath
 
 if [[ $3 ]]; then
-    if [[ -d "v"${1}/release-mac ]]; then
-        rm -rf "v"${1}/release-mac
+    if [[ -d "v"${1} ]]; then
+        rm -rf "v"${1}
       fi
+    mkdir "v"${1}
     mkdir "v"${1}/release-mac
     sh script/ooAll.sh $1 $2 $3
     sh script/makeMacServer.sh $1

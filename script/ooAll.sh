@@ -16,10 +16,6 @@ echo $CUR_PATH
 cd $basepath
 cd ..
 if [[ $3 ]]; then
-    if [[ -d "v"${1} ]]; then
-        rm -r "v"${1}
-    fi
-    mkdir "v"${1}
 
    sh script/o1OneLife.sh  $1
    sh script/o2OneLifeData7.sh $1 $2

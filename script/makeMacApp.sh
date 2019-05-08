@@ -22,6 +22,7 @@ if [[ $1 ]]; then
       fi
       mkdir "v"${1}/release-mac/client
       cp -r oneonesource/zh/mac_zh/OneLife_v198.app "v${1}/release-mac/client/OneLife_v${1}.app"
+      cp -f ~/Documents/github/oneone/oneonesource/zh/mac_zh/frameworks/libfreetype.6.dylib "v${1}/release-mac/client/OneLife_v${1}.app/Contents/frameworks"
       cp -f "v${1}/OneLife/gameSource/OneLife" "v${1}/release-mac/client/OneLife_v${1}.app/Contents/MacOS/OneLife"
       cp oneonesource/zh/mac_zh/font.ttf  "v${1}/release-mac/client/"
 

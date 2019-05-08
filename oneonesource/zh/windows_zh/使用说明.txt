@@ -16,6 +16,7 @@ http://onehouronelife.com/forums/viewtopic.php?id=423
 1.cd到OneLife,输入./configure之后选择对应的操作系统生成MakeFile文件
 2.cd到gameSource然后输入make可开始编辑客户端
 3.等编译客户端完成后，将settings/useCustomServer.ini设置为1即游戏使用用户定义的服务器运行
+4.注意SDL的路径，要在/usr/local/include
 
 注意问题，
 1.windows下编译时有图片转换问题，
